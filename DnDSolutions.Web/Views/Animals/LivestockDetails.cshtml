@@ -1,0 +1,94 @@
+﻿@model LivestockDetailsViewModel
+
+@{
+	ViewData["Title"] = "Livestock Details";
+}
+
+<div>
+	@await Html.PartialAsync("_RouteSummaryPartial", Model.RouteSummary)
+	<div class="card">
+		<div class="card-header">
+			Livestock Details
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						<b>Breed</b>
+					</div>
+					<div class="col">
+						<b>Condition</b>
+					</div>
+					<div class="col">
+						<b>Has Corral</b>
+					</div>
+					<div class="col">
+						<b>Has All Tags</b>
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						@Model.Breed
+					</div>
+					<div class="col">
+						@(Model.HasAllVaccinations ? "Vaccinated" : string.Empty)
+					</div>
+					<div class="col">
+						@(Model.IsInCorral ? "Yes" : "No")
+					</div>
+					<div class="col">
+						@(Model.HasAllTags ? "Yes" : "No")
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						<b>Count</b>
+					</div>
+					<div class="col">
+						<b>Total Weight</b>
+					</div>
+					<div class="col">
+						<b>Special Needs</b>
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						@Model.Count
+					</div>
+					<div class="col">
+						@Model.TotalWeight kg
+					</div>
+					<div class="col">
+						@(Model.HasSpecificNeeds ? "Yes" : "No")
+					</div>
+				</div>
+			</li>
+			@if (Model.Photos.Any())
+			{
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col">
+							<b>Photos</b>
+						</div>
+						@foreach (var photo in Model.Photos)
+						{
+							<div class="col">
+								<img src="~/images/@photo.Path" class="card-img">
+							</div>
+						}
+					</div>
+				</li>
+			}
+		</ul>
+	</div>
+	@if (Model.AdditionalDetails != null)
+	{
+		@await Html.PartialAsync("_AdditionalDetailsPartial", Model.AdditionalDetails)
+	}
+</div>

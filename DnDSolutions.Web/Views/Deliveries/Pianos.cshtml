@@ -1,0 +1,50 @@
+﻿@model PianoListingViewModel
+
+@{
+	ViewData["Title"] = "Pianos";
+}
+
+<h1>All Pianos Deliveries</h1>
+
+<div class="row">
+	@foreach (var piano in Model.Pianos)
+	{
+		@await Component.InvokeAsync(
+	   "DeliveryListItem",
+	   new
+	   {
+		   id = piano.Id,
+		   title = piano.Title,
+		   pickupLocation = piano.PickupLocation,
+		   deliveryLocation = piano.DeliveryLocation,
+		   collectionDate = piano.CollectionDateEarliest,
+		   photos = piano.Photos,
+		   controller = "HouseholdItemsAndMoves",
+		   action = "Pianos",
+	   })
+	}
+</div>
+
+@if (Model.TotalPianos > Model.Pianos.Count())
+{
+	<ul class="pagination justify-content-center">
+		<li class="page-item @(Model.CurrentPage == 1 ? "disabled" : string.Empty)">
+			<a class="page-link"
+			   aria-label="Previous"
+			   asp-route-page="@Model.PreviousPage">
+				<span id="previous-page" aria-hidden="true">
+					Previous page
+				</span>
+			</a>
+		</li>
+		<li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : string.Empty)">
+			<a class="page-link"
+			   aria-label="Next"
+			   asp-route-page="@Model.NextPage">
+				<span id="next-page" aria-hidden="true">
+					Next page
+				</span>
+			</a>
+		</li>
+	</ul>
+}

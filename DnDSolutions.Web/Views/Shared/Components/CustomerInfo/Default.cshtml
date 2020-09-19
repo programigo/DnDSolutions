@@ -1,0 +1,27 @@
+﻿@model DeliveryViewModel
+
+<div class="col-sm-6">
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title">@Model.Username</h5>
+			<a id="chat-button" class="btn" asp-controller="Messages" asp-action="Index" asp-route-recipientId="@Model.UserId">
+				<i class="far fa-comment"></i>
+			</a>
+		</div>
+	</div>
+</div>
+
+<style>
+	#chat-button {
+		background-color: DodgerBlue;
+		border: none;
+		color: white;
+		padding: 12px 16px;
+		font-size: 16px;
+		cursor: pointer;
+	}
+
+		#chat-button:hover {
+			background-color: RoyalBlue;
+		}
+</style>

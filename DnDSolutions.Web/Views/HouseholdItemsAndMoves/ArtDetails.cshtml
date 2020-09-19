@@ -1,0 +1,181 @@
+﻿@model ArtDetailsViewModel
+
+@{
+	ViewData["Title"] = "Art Details";
+}
+
+<div>
+	@await Html.PartialAsync("_RouteSummaryPartial", Model.RouteSummary)
+	<div class="card">
+		<div class="card-header">
+			Art Details
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						<b>Type</b>
+					</div>
+					<div class="col">
+						<b>Packaging</b>
+					</div>
+					<div class="col">
+						<b>Special Handling</b>
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						@Model.Type
+					</div>
+					<div class="col">
+						@(Model.Packaging != null ? @Model.Packaging : "-")
+					</div>
+					<div class="col">
+						@(Model.SpecialHandling != null ? @Model.SpecialHandling : "-")
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						<b>Length</b>
+					</div>
+					<div class="col">
+						<b>Width</b>
+					</div>
+					<div class="col">
+						<b>Height</b>
+					</div>
+					<div class="col">
+						<b>Weight</b>
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						@if (Model.LengthFirstPart > 0)
+						{
+							@if (Model.MeasurementUnit == MeasurementUnit.Metric)
+							{
+								<span>
+									@Model.LengthFirstPart m
+								</span>
+							}
+							else
+							{
+								<span>
+									@Model.LengthFirstPart ft
+								</span>
+							}
+						}
+						@if (Model.LengthSecondPart != null && Model.LengthSecondPart > 0)
+						{
+							@if (Model.MeasurementUnit == MeasurementUnit.Metric)
+							{
+								<span>
+									@Model.LengthSecondPart cm
+								</span>
+							}
+							else
+							{
+								<span>
+									@Model.LengthSecondPart in
+								</span>
+							}
+						}
+					</div>
+					<div class="col">
+						@if (Model.WidthFirstPart > 0)
+						{
+							@if (Model.MeasurementUnit == MeasurementUnit.Metric)
+							{
+								<span>
+									@Model.WidthFirstPart m
+								</span>
+							}
+							else
+							{
+								<span>
+									@Model.WidthFirstPart ft
+								</span>
+							}
+						}
+						@if (Model.WidthSecondPart != null && Model.WidthSecondPart > 0)
+						{
+							@if (Model.MeasurementUnit == MeasurementUnit.Metric)
+							{
+								<span>
+									@Model.WidthSecondPart cm
+								</span>
+							}
+							else
+							{
+								<span>
+									@Model.WidthSecondPart in
+								</span>
+							}
+						}
+					</div>
+					<div class="col">
+						@if (Model.HeightFirstPart > 0)
+						{
+							@if (Model.MeasurementUnit == MeasurementUnit.Metric)
+							{
+								<span>
+									@Model.HeightFirstPart m
+								</span>
+							}
+							else
+							{
+								<span>
+									@Model.HeightFirstPart ft
+								</span>
+							}
+						}
+						@if (Model.HeightSecondPart != null && Model.HeightSecondPart > 0)
+						{
+							@if (Model.MeasurementUnit == MeasurementUnit.Metric)
+							{
+								<span>
+									@Model.HeightSecondPart cm
+								</span>
+							}
+							else
+							{
+								<span>
+									@Model.HeightSecondPart in
+								</span>
+							}
+						}
+					</div>
+					<div class="col">
+						@(Model.MeasurementUnit == MeasurementUnit.Metric ? $"{Model.Weight} kg" : $"{Model.Weight} lbs")
+					</div>
+				</div>
+			</li>
+			@if (Model.Photos.Any())
+			{
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col">
+							<b>Photos</b>
+						</div>
+						@foreach (var photo in Model.Photos)
+						{
+							<div class="col">
+								<img src="~/images/@photo.Path" class="card-img">
+							</div>
+						}
+					</div>
+				</li>
+			}
+		</ul>
+	</div>
+	@if (Model.AdditionalDetails != null)
+	{
+		@await Html.PartialAsync("_AdditionalDetailsPartial", Model.AdditionalDetails)
+	}
+</div>

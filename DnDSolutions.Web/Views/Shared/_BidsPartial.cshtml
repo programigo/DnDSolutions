@@ -1,0 +1,48 @@
+﻿@model IEnumerable<BidViewModel>
+@inject UserManager<User> userManager
+
+<div class="card">
+	<div class="card-header">
+		Bids
+	</div>
+	<ul class="list-group list-group-flush">
+		<li class="list-group-item">
+			<div class="row">
+				<div class="col">
+					<b>Transporter</b>
+				</div>
+				<div class="col">
+					<b>Amount</b>
+				</div>
+			</div>
+		</li>
+		@foreach (var bid in Model)
+		{
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						<a asp-controller="Transporters" asp-action="Details" asp-route-id="@bid.UserId">
+							@this.userManager.FindByIdAsync(bid.UserId).Result.UserName
+						</a>
+					</div>
+					<div class="col">
+						@if (bid.Currency == BidCurrency.EUR)
+						{
+							<span>
+								@bid.Amount&euro;
+							</span>
+
+						}
+						else
+						{
+							<span>
+								@bid.Amount&dollar;
+							</span>
+						}
+					</div>
+				</div>
+			</li>
+		}
+
+	</ul>
+</div>

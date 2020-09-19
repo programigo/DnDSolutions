@@ -1,0 +1,36 @@
+﻿namespace DnDSolutions.Data.Models.Animals
+{
+    public enum HorseBreed
+    {
+        Andalusian,
+        Appaloosa,
+        Arabian,
+        Bay,
+        Clydesdale,
+        Donkey,
+        Draft,
+        DraftCross,
+        Hanoverian,
+        Holsteiner,
+        Lipizzan,
+        Miniature,
+        Morgan,
+        Mule,
+        Mustang,
+        Paint,
+        Palomino,
+        Pinto,
+        Pony,
+        QuarterHorse,
+        QuarterHorseCross,
+        Saddlebred,
+        ShetlandPony,
+        Standardbred,
+        Thoroughbred,
+        ThoroughbredCross,
+        Warmblood,
+        Welsh,
+        WelshPony,
+        Other,
+    }
+}

@@ -1,0 +1,105 @@
+﻿@model CatFormModel
+
+@{
+    ViewData["Title"] = "Create Cat";
+}
+
+<h1>Create new Cat shipment</h1>
+
+<div class="row">
+    <div class="col-md-4">
+        <form enctype="multipart/form-data" method="post">
+            <div class="form-group">
+                <label asp-for="Count"></label>
+                <input type="number" min="1" step="1" asp-for="Count" class="form-control" />
+                <span asp-validation-for="Count" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" />
+                <span asp-validation-for="Title" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Name"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Breed"></label>
+                <input asp-for="Breed" class="form-control" />
+                <span asp-validation-for="Breed" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Weight"></label>
+                <input type="number" step="1" placeholder="kg" asp-for="Weight" class="form-control" />
+                <span asp-validation-for="Weight" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HasAllVaccinations"></label>
+                @Html.RadioButtonFor(m => m.HasAllVaccinations, true) Yes
+                @Html.RadioButtonFor(m => m.HasAllVaccinations, false) No
+                <span asp-validation-for="HasAllVaccinations" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HasCarrier"></label>
+                @Html.RadioButtonFor(m => m.HasCarrier, true) Yes
+                @Html.RadioButtonFor(m => m.HasCarrier, false) No
+                <span asp-validation-for="HasCarrier" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="HasSpecificNeeds"></label>
+                @Html.RadioButtonFor(m => m.HasSpecificNeeds, true) Yes
+                @Html.RadioButtonFor(m => m.HasSpecificNeeds, false) No
+                <span asp-validation-for="HasSpecificNeeds" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PickupLocation"></label>
+                <input asp-for="PickupLocation" class="form-control" />
+                <span asp-validation-for="PickupLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeliveryLocation"></label>
+                <input asp-for="DeliveryLocation" class="form-control" />
+                <span asp-validation-for="DeliveryLocation" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollectionDateEarliest"></label>
+                <input type="date" name="CollectionDateEarliest" required />
+                <span asp-validation-for="CollectionDateEarliest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CollectionDateLatest"></label>
+                <input type="date" name="CollectionDateLatest" required />
+                <span asp-validation-for="CollectionDateLatest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeliveryDateEarliest"></label>
+                <input type="date" name="DeliveryDateEarliest" required />
+                <span asp-validation-for="DeliveryDateEarliest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DeliveryDateLatest"></label>
+                <input type="date" name="DeliveryDateLatest" required />
+                <span asp-validation-for="DeliveryDateLatest" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Photos"></label>
+                <div class="custom-file">
+                    <input multiple asp-for="Photos" class="form-control custom-file-input" />
+                    <label class="custom-file-label">Choose File...</label>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="AdditionalDetails"></label>
+                <textarea asp-for="AdditionalDetails" class="form-control"></textarea>
+                <span asp-validation-for="AdditionalDetails" class="text-danger"></span>
+            </div>
+            <button type="submit" class="btn btn-primary">Create</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+    @await Html.PartialAsync("_ValidationScriptsPartial")
+    @await Html.PartialAsync("_FileInputValidationScriptsPartial")
+}

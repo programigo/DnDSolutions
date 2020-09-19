@@ -1,0 +1,122 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<title>@ViewData["Title"] - DnD Solutions</title>
+	<link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+	<link rel="stylesheet" href="~/css/site.css" />
+	<link href="~/lib/font-awesome/css/all.css" rel="stylesheet" />
+</head>
+<body>
+	<header class="header">
+		<nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+			<div class="container">
+				<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">DnD Solutions</a>
+				<button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
+						aria-expanded="false" aria-label="Toggle navigation">
+					<span class="navbar-toggler-icon"></span>
+				</button>
+				<ul class="nav navbar-nav">
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Find Deliveries</a>
+						<div class="dropdown-menu">
+							<form id="accordion-form" class="accordion">
+								<div>
+									<a class="dropdown-item" data-toggle="collapse" data-target="#collapse-one" href="">
+										Animals
+									</a>
+									<div id="collapse-one" class="collapse px-3" data-parent="#accordion-form">
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="Cats">Cats</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="Dogs">Dogs</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="Horses">Horses</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="Livestock">Livestock</a>
+									</div>
+								</div>
+								<div>
+									<a class="dropdown-item" data-toggle="collapse" data-target="#collapse-two" href="">
+										Vehicles
+									</a>
+									<div id="collapse-two" class="collapse px-3" data-parent="#accordion-form">
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="ATVs">ATVs</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="Cars">Cars</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="Motorcycles">Motorcycles</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="HeavyVehicles">Heavy Vehicles</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="RecreationalVehicles">Recreational Vehicles</a>
+									</div>
+								</div>
+								<div>
+									<a class="dropdown-item" data-toggle="collapse" data-target="#collapse-three" href="">
+										Freights
+									</a>
+									<div id="collapse-three" class="collapse px-3" data-parent="#accordion-form">
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="LessThanContainerLoads">Less Than Container Loads</a>
+									</div>
+								</div>
+								<div>
+									<a class="dropdown-item" data-toggle="collapse" data-target="#collapse-four" href="">
+										Household Items And Moves
+									</a>
+									<div id="collapse-four" class="collapse px-3" data-parent="#accordion-form">
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="Arts">Arts</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="HouseholdItems">Household Items</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="Moves">Moves</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="Pianos">Pianos</a>
+										<a class="dropdown-item" asp-controller="Deliveries" asp-action="Offices">Offices</a>
+									</div>
+								</div>
+								<a class="dropdown-item" asp-controller="Deliveries" asp-action="Boats">Boats</a>
+							</form>
+						</div>
+					</li>
+					@if (User.IsInRole(GlobalConstants.AdministratorRole))
+					{
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Users</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" asp-area="Admin" asp-controller="Users" asp-action="Index">User Administration</a>
+								<a class="dropdown-item" asp-area="Admin" asp-controller="Users" asp-action="Pending">Pending Requests</a>
+								<a class="dropdown-item" asp-area="Admin" asp-controller="Users" asp-action="Register">Register New Moderator</a>
+							</div>
+						</li>
+					}
+					@if (User.IsInRole(GlobalConstants.ModeratorRole))
+					{
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Users</a>
+							<div class="dropdown-menu">
+								<a class="dropdown-item" asp-area="Admin" asp-controller="Users" asp-action="Index">User Administration</a>
+								<a class="dropdown-item" asp-area="Admin" asp-controller="Users" asp-action="Pending">Pending Requests</a>
+							</div>
+						</li>
+					}
+				</ul>
+				<div class="navbar-collapse collapse d-sm-inline-flex flex-sm-row-reverse">
+					<partial name="_LoginPartial" />
+				</div>
+			</div>
+		</nav>
+	</header>
+	<div class="container">
+		@if (TempData.ContainsKey(GlobalConstants.TempDataSuccessMessageKey))
+		{
+			<div class="alert alert-success">
+				@TempData[GlobalConstants.TempDataSuccessMessageKey]
+			</div>
+		}
+		<main role="main" class="pb-3">
+			@RenderBody()
+		</main>
+	</div>
+
+	<footer class="border-top footer text-muted">
+		<div class="container">
+			&copy; 2019 - DnD Solutions
+		</div>
+	</footer>
+	<script src="~/lib/jquery/dist/jquery.min.js"></script>
+	<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+	<script src="~/js/site.js" asp-append-version="true"></script>
+	@RenderSection("Scripts", required: false)
+</body>
+</html>

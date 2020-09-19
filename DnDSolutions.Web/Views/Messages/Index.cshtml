@@ -1,0 +1,98 @@
+﻿@model List<DnDSolutions.Services.Models.Messages.MessageListingServiceModel>
+@inject UserManager<User> userManager
+
+@{
+	string userName = User.Identity.Name;
+	string userId = this.userManager.GetUserId(User);
+	string recipientId = this.Context.Request.Query.FirstOrDefault(x => x.Key.Equals("recipientId")).Value.FirstOrDefault();
+}
+
+<div class="jumbotron bg-light">
+	<h2 class="text-center text-primary">
+		<i class="fab fa-facebook-messenger">
+			&nbsp; Private Chat
+		</i>
+	</h2>
+
+	<div class="row">
+		<div id="chat" class="col-md-12">
+			@if (Model != null)
+			{
+				@foreach (var message in Model)
+				{
+					string containerClass = string.Empty;
+					string timePosition = string.Empty;
+					string textAlign = string.Empty;
+					string containerColor = string.Empty;
+					string offset = string.Empty;
+
+					if (userName == message.UserName)
+					{
+						containerClass = "container darker";
+						timePosition = "time-right text-light";
+						textAlign = "text-right text-white";
+						containerColor = "bg-primary";
+						offset = "col-md-6 offset-md-6";
+					}
+					else
+					{
+						containerClass = "container";
+						timePosition = "time-left";
+						textAlign = "text-left";
+						containerColor = "bg-light";
+						offset = "";
+					}
+
+					<div class="row">
+						<div class="@offset">
+							<div class="@containerClass @containerColor">
+								<p class="sender @textAlign">
+									@message.UserName
+								</p>
+								<p class="@textAlign">
+									@message.Text
+								</p>
+								<span class="@timePosition">
+									@message.SendOn
+								</span>
+							</div>
+						</div>
+					</div>
+				}
+			}
+		</div>
+		<div class="col-md-12">
+			<form asp-action="Create"
+				  data-ajax-begin="clearInputField"
+				  data-ajax-complete=""
+				  data-ajax-failure="alert('Fail')"
+				  data-ajax-success="sendPrivateMessage"
+				  data-ajax="true"
+				  data-ajax-method="POST">
+				<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+				<div class="form-group">
+					<input name="Text" class="form-control" id="messageText" />
+				</div>
+				<div class="form-group">
+					<input type="submit" value="Send" id="submitButton" class="btn btn-primary" />
+				</div>
+				<input type="hidden" value="@userName" name="username" />
+				<input type="hidden" value="@userId" name="userId" />
+				<input type="hidden" value="@recipientId" name="recipientId" />
+			</form>
+		</div>
+	</div>
+</div>
+
+<script>
+	const userName = "@ViewBag.CurrentUserName";
+	const userId = "@ViewBag.CurrentUserId";
+	const recipientId = "@ViewBag.RecipientId";
+</script>
+
+@section scripts{
+	<script src="~/signalr/signalr.min.js"></script>
+	<script src="~/lib/jquery/dist/jquery-unobtrusive-ajax.min.js"></script>
+	<script src="~/js/chat.js"></script>
+	<script src="~/js/signalrReqHandler.js"></script>
+}

@@ -1,0 +1,15 @@
+﻿<script>
+		$('input:radio[name="MeasurementUnit"]').change(
+			function () {
+				if ($(this).is(":checked") && $(this).val() == "Imperial") {
+					$(".first-part-input").attr("placeholder", "feet");
+					$(".second-part-input").attr("placeholder", "inches");
+					$(".weight-input").attr("placeholder", "pounds");
+				}
+				if ($(this).is(":checked") && $(this).val() == "Metric") {
+					$(".first-part-input").attr("placeholder", "meters");
+					$(".second-part-input").attr("placeholder", "centimeters");
+					$(".weight-input").attr("placeholder", "kilograms");
+				}
+			});
+</script>

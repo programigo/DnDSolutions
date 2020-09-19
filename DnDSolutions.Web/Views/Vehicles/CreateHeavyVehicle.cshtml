@@ -1,0 +1,147 @@
+﻿@model HeavyVehicleFormModel
+
+@{
+	ViewData["Title"] = "Create Commercial Truck";
+}
+
+<h1>Create new Heavy Vehicle delivery</h1>
+
+<div class="row">
+	<div class="col-md-4">
+		<form enctype="multipart/form-data" method="post" onsubmit="return validateTrailerCheckboxes();">
+			<div class="form-group">
+				<label asp-for="Title"></label>
+				<input asp-for="Title" class="form-control" />
+				<span asp-validation-for="Title" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Type"></label>
+				<select asp-for="Type" asp-items="Html.GetEnumSelectList<HeavyVehicleType>()" class="form-control"></select>
+				<span asp-validation-for="Type" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Make"></label>
+				<input asp-for="Make" class="form-control" />
+				<span asp-validation-for="Make" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Model"></label>
+				<input asp-for="Model" class="form-control" />
+				<span asp-validation-for="Model" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="IsOnTrailer"></label>
+				@Html.RadioButtonFor(m => m.IsOnTrailer, true) Yes
+				@Html.RadioButtonFor(m => m.IsOnTrailer, false) No
+				<span asp-validation-for="IsOnTrailer" class="text-danger"></span>
+			</div>
+			<div id="owned-trailer-type" class="form-group" style="display:none">
+				<label asp-for="OwnedTrailerType"></label>
+				@Html.DropDownListFor(ct => ct.OwnedTrailerType,
+					new SelectList(Enum.GetValues(typeof(HeavyVehicleOwnedTrailerType))),
+					"Select Trailer",
+					new { @class = "form-control" })
+				<span asp-validation-for="OwnedTrailerType" class="text-danger"></span>
+			</div>
+			<div id="trailer-checkboxes-list" class="form-group" style="display:none">
+				<label asp-for="TrailerType"></label>
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.DryVan)" /> Dry Van
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.Flatbed)" /> Flatbed
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.FlatbedDouble)" /> Flatbed Double
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.LowLoader)" /> Low Loader
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.AirSuspensionVehicle)" /> Air Suspension Vehicle
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.RefrigeratedVehicle)" /> Refrigerated Vehicle
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.SemiLowloader)" /> Semi Lowloader
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.StepDeck)" /> Step Deck
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.StretchedFlatbed)" /> Stretched Flatbed
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.Tanker)" /> Tanker
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.CarTransporter)" /> Car Transporter
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.DoubleCabVan)" /> Double Cab Van
+				<input type="checkbox" name="TrailerType" value="@((int)HeavyVehicleTrailerType.TippingTrailer)" /> Tipping Trailer
+				<span asp-validation-for="TrailerType" class="text-danger"></span>
+				<span class="trailer-error text-danger" style="display:none">You must select at least one trailer type.</span>
+			</div>
+			<div class="form-group">
+				<label asp-for="PickupLocation"></label>
+				<input asp-for="PickupLocation" class="form-control" />
+				<span asp-validation-for="PickupLocation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryLocation"></label>
+				<input asp-for="DeliveryLocation" class="form-control" />
+				<span asp-validation-for="DeliveryLocation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="CollectionDateEarliest"></label>
+				<input type="date" name="CollectionDateEarliest" required />
+				<span asp-validation-for="CollectionDateEarliest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="CollectionDateLatest"></label>
+				<input type="date" name="CollectionDateLatest" required />
+				<span asp-validation-for="CollectionDateLatest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryDateEarliest"></label>
+				<input type="date" name="DeliveryDateEarliest" required />
+				<span asp-validation-for="DeliveryDateEarliest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryDateLatest"></label>
+				<input type="date" name="DeliveryDateLatest" required />
+				<span asp-validation-for="DeliveryDateLatest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Photos"></label>
+				<div class="custom-file">
+					<input multiple asp-for="Photos" class="form-control custom-file-input" />
+					<label class="custom-file-label">Choose File...</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label asp-for="AdditionalDetails"></label>
+				<textarea asp-for="AdditionalDetails" class="form-control"></textarea>
+				<span asp-validation-for="AdditionalDetails" class="text-danger"></span>
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+	@await Html.PartialAsync("_FileInputValidationScriptsPartial")
+
+	<script>
+		$('input:radio[name="IsOnTrailer"]').change(
+			function () {
+				if ($(this).is(":checked") && $(this).val() == "True") {
+					$("#trailer-checkboxes-list input[type=checkbox]:checked").prop("checked", false);
+					$("#owned-trailer-type").show();
+					$("#trailer-checkboxes-list").hide();
+				}
+				if ($(this).is(":checked") && $(this).val() == "False") {
+					$("#OwnedTrailerType").val(0);
+					$("#trailer-checkboxes-list").show();
+					$("#owned-trailer-type").hide();
+				}
+			});
+	</script>
+
+	<script>
+		function validateTrailerCheckboxes() {
+			if ($("#trailer-checkboxes-list").is(":visible")) {
+				var trailerCheckedCheckboxes = $("#trailer-checkboxes-list input[type=checkbox]:checked");
+				if (trailerCheckedCheckboxes.length == 0) {
+					$(".trailer-error").show();
+					return false;
+				}
+				$(".trailer-error").hide();
+				return true;
+			}
+
+			$(".trailer-error").hide();
+			return true;
+		};
+	</script>
+}

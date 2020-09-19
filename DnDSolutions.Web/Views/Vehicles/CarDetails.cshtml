@@ -1,0 +1,90 @@
+﻿@model CarDetailsViewModel
+
+@{
+	ViewData["Title"] = "Car Details";
+}
+
+<div>
+	@await Html.PartialAsync("_RouteSummaryPartial", Model.RouteSummary)
+	<div class="card">
+		<div class="card-header">
+			Car Details
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						<b>Body Type</b>
+					</div>
+					<div class="col">
+						<b>Make</b>
+					</div>
+					<div class="col">
+						<b>Model</b>
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						@Model.BodyType
+					</div>
+					<div class="col">
+						@Model.Make
+					</div>
+					<div class="col">
+						@Model.Model
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						<b>State</b>
+					</div>
+					<div class="col">
+						<b>Service Type</b>
+					</div>
+					<div class="col">
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						@Model.State
+					</div>
+					<div class="col">
+						@Model.ServiceType
+					</div>
+					<div class="col">
+					</div>
+				</div>
+			</li>
+			@if (Model.Photos.Any())
+			{
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col">
+							<b>Photos</b>
+						</div>
+						@foreach (var photo in Model.Photos)
+						{
+							<div class="col">
+								<img src="~/images/@photo.Path" class="card-img">
+							</div>
+						}
+					</div>
+				</li>
+			}
+		</ul>
+	</div>
+	@if (Model.Bids.Any())
+	{
+		@await Html.PartialAsync("_BidsPartial", Model.Bids)
+	}
+	@if (Model.AdditionalDetails != null)
+	{
+		@await Html.PartialAsync("_AdditionalDetailsPartial", Model.AdditionalDetails)
+	}
+</div>

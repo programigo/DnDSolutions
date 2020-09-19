@@ -1,0 +1,128 @@
+﻿@model RegisterTransporterViewModel
+
+<h2>Register As Transporter</h2>
+
+<div class="row">
+	<div class="col-md-4">
+		<form id="reg-form" asp-route-returnUrl="@ViewData["ReturnUrl"]" method="post" onsubmit=" return !!(validateTrailerCheckboxes() & validateComodityCheckboxes());">
+			<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+			<div class="form-group">
+				<label asp-for="Username"></label>
+				<input asp-for="Username" class="form-control" />
+				<span asp-validation-for="Username" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="FirstName"></label>
+				<input asp-for="FirstName" class="form-control" />
+				<span asp-validation-for="FirstName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="LastName"></label>
+				<input asp-for="LastName" class="form-control" />
+				<span asp-validation-for="LastName" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Email"></label>
+				<input asp-for="Email" class="form-control" />
+				<span asp-validation-for="Email" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Password"></label>
+				<input asp-for="Password" class="form-control" />
+				<span asp-validation-for="Password" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="ConfirmPassword"></label>
+				<input asp-for="ConfirmPassword" class="form-control" />
+				<span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Phone"></label>
+				<input asp-for="Phone" class="form-control" />
+				<span asp-validation-for="Phone" class="text-danger"></span>
+			</div>
+			<div id="trailer-checkboxes-list" class="form-group">
+				<label asp-for="TrailerType"></label>
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.AirRideVan)" /> Air Ride Van
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.AutoCarrier)" /> Auto Carrier
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.DryVan)" /> Dry Van
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.Dump)" /> Dump
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.Flatbed)" /> Flatbed
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.FlatbedDouble)" /> Flatbed Double
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.LowLoader)" /> Low Loader
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.PowerOnly)" /> Power Only
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.RefrigeratedVehicle)" /> Refrigerated Vehicle
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.RemovableGooseneck)" /> Removable Gooseneck
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.StepDeck)" /> Step Deck
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.StretchFlatbed)" /> Stretch Flatbed
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.Tanker)" /> Tanker
+				<input type="checkbox" name="TrailerType" value="@((int)TrailerType.VanDouble)" /> Van Double
+				<span asp-validation-for="TrailerType" class="text-danger"></span>
+				<span class="trailer-error text-danger" style="display:none">You must select at least one trailer type.</span>
+			</div>
+			<div id="comodity-checkboxes-list" class="form-group">
+				<label asp-for="ComodityType"></label>
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.AntiquesAndSpecialCareItems)" /> Antiques And Special Care Items
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.Boats)" /> Boats
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.BusinessIndustrialGoods)" /> Business Industrial Goods
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.FoodAgriculturalGoods)" /> Food Agricultural Goods
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.FullLoad)" /> FullLoad
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.HorsesLivestock)" /> Horses Livestock
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.HouseholdAndOfficeMoves)" /> Household And Office Moves
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.HouseholdGoods)" /> Household Goods
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.LessThanContainerLoad)" /> Less Than Container Load
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.MotorcyclesAndPowerSports)" /> Motorcycles And Power Sports
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.Pets)" /> Pets
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.PlantAndHeavyEquipment)" /> Plant And Heavy Equipment
+				<input type="checkbox" name="ComodityType" value="@((int)ComodityType.Vehicles)" /> Vehicles
+				<span asp-validation-for="ComodityType" class="text-danger"></span>
+				<span class="comodity-error text-danger" style="display:none">You must select at least one comodity type.</span>
+			</div>
+			<div class="form-group">
+				<input type="checkbox" asp-for="DoesAgree" />
+				<label asp-for="DoesAgree"></label>
+				<span asp-validation-for="DoesAgree" class="text-danger"></span>
+			</div>
+			<button type="submit" class="btn btn-primary">Register</button>
+		</form>
+	</div>
+</div>
+
+@section Scripts{
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+
+	<script>
+		// extend range validator method to treat checkboxes differently
+		var defaultRangeValidator = $.validator.methods.range;
+		$.validator.methods.range = function (value, element, param) {
+			if (element.type === 'checkbox') {
+				// if it's a checkbox return true if it is checked
+				return element.checked;
+			} else {
+				// otherwise run the default validation function
+				return defaultRangeValidator.call(this, value, element, param);
+			}
+		}
+	</script>
+
+	<script type="text/javascript">
+		function validateTrailerCheckboxes() {
+			var trailer_checked_checkboxes = $("#trailer-checkboxes-list input[type=checkbox]:checked");
+			if (trailer_checked_checkboxes.length == 0) {
+				$(".trailer-error").show();
+				return false;
+			}
+			$(".trailer-error").hide();
+			return true;
+		};
+		function validateComodityCheckboxes() {
+			var comodity_checked_checkboxes = $("#comodity-checkboxes-list input[type=checkbox]:checked");
+			if (comodity_checked_checkboxes.length == 0) {
+				$(".comodity-error").show();
+				return false;
+			}
+			$(".comodity-error").hide();
+			return true;
+		};
+	</script>
+}

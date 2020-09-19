@@ -1,0 +1,89 @@
+﻿@model OfficeDetailsViewModel
+
+@{
+	ViewData["Title"] = "Office Details";
+}
+
+<div>
+	@await Html.PartialAsync("_RouteSummaryPartial", Model.RouteSummary)
+	<div class="card">
+		<div class="card-header">
+			Office Details
+		</div>
+		<ul class="list-group list-group-flush">
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						<b>Collection Floor</b>
+					</div>
+					<div class="col">
+						<b>Delivery Floor</b>
+					</div>
+					<div class="col">
+						<b>Has Collection Floor Elevator</b>
+					</div>
+
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						@Model.CollectionFloor
+					</div>
+					<div class="col">
+						@Model.DeliveryFloor
+					</div>
+					<div class="col">
+						@(Model.HasCollectionFloorElevator ? "Yes" : "No")
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						<b>Has Delivery Floor Elevator</b>
+					</div>
+					<div class="col">
+						<b>Has Disassembly Items</b>
+					</div>
+					<div class="col">
+						<b>Has Reassembly Items</b>
+					</div>
+				</div>
+			</li>
+			<li class="list-group-item">
+				<div class="row">
+					<div class="col">
+						@(Model.HasDeliveryFloorElevator ? "Yes" : "No")
+					</div>
+					<div class="col">
+						@(Model.HasDisassemblyItems ? "Yes" : "No")
+					</div>
+					<div class="col">
+						@(Model.HasReassemblyItems ? "Yes" : "No")
+					</div>
+				</div>
+			</li>
+			@if (Model.Photos.Any())
+			{
+				<li class="list-group-item">
+					<div class="row">
+						<div class="col">
+							<b>Photos</b>
+						</div>
+						@foreach (var photo in Model.Photos)
+						{
+							<div class="col">
+								<img src="~/images/@photo.Path" class="card-img">
+							</div>
+						}
+					</div>
+				</li>
+			}
+		</ul>
+	</div>
+	@if (Model.AdditionalDetails != null)
+	{
+		@await Html.PartialAsync("_AdditionalDetailsPartial", Model.AdditionalDetails)
+	}
+</div>

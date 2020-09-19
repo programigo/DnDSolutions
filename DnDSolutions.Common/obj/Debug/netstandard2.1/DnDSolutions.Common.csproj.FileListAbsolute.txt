@@ -1,0 +1,9 @@
+D:\DnDSolutions\DnDSolutions.Common\bin\Debug\netstandard2.1\DnDSolutions.Common.deps.json
+D:\DnDSolutions\DnDSolutions.Common\bin\Debug\netstandard2.1\DnDSolutions.Common.dll
+D:\DnDSolutions\DnDSolutions.Common\bin\Debug\netstandard2.1\DnDSolutions.Common.pdb
+D:\DnDSolutions\DnDSolutions.Common\obj\Debug\netstandard2.1\DnDSolutions.Common.AssemblyInfoInputs.cache
+D:\DnDSolutions\DnDSolutions.Common\obj\Debug\netstandard2.1\DnDSolutions.Common.AssemblyInfo.cs
+D:\DnDSolutions\DnDSolutions.Common\obj\Debug\netstandard2.1\DnDSolutions.Common.dll
+D:\DnDSolutions\DnDSolutions.Common\obj\Debug\netstandard2.1\DnDSolutions.Common.pdb
+D:\DnDSolutions\DnDSolutions.Common\obj\Debug\netstandard2.1\DnDSolutions.Common.csprojAssemblyReference.cache
+D:\DnDSolutions\DnDSolutions.Common\obj\Debug\netstandard2.1\DnDSolutions.Common.csproj.CoreCompileInputs.cache

@@ -1,0 +1,49 @@
+﻿@model DogListingViewModel
+@{
+	ViewData["Title"] = "Dogs Deliveries";
+}
+
+<h1>All Dogs Deliveries</h1>
+
+<div class="row">
+	@foreach (var dog in Model.Dogs)
+	{
+		@await Component.InvokeAsync(
+	   "DeliveryListItem",
+	   new
+	   {
+		   id = dog.Id,
+		   title = dog.Title,
+		   pickupLocation = dog.PickupLocation,
+		   deliveryLocation = dog.DeliveryLocation,
+		   collectionDate = dog.CollectionDateEarliest,
+		   photos = dog.Photos,
+		   controller = "Animals",
+		   action = "Dogs",
+	   })
+	}
+</div>
+
+@if (Model.TotalDogs > Model.Dogs.Count())
+{
+	<ul class="pagination justify-content-center">
+		<li class="page-item @(Model.CurrentPage == 1 ? "disabled" : string.Empty)">
+			<a class="page-link"
+			   aria-label="Previous"
+			   asp-route-page="@Model.PreviousPage">
+				<span id="previous-page" aria-hidden="true">
+					Previous page
+				</span>
+			</a>
+		</li>
+		<li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : string.Empty)">
+			<a class="page-link"
+			   aria-label="Next"
+			   asp-route-page="@Model.NextPage">
+				<span id="next-page" aria-hidden="true">
+					Next page
+				</span>
+			</a>
+		</li>
+	</ul>
+}

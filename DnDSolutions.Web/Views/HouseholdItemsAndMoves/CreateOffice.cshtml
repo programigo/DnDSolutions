@@ -1,0 +1,101 @@
+﻿@model OfficeFormModel
+
+@{
+	ViewData["Title"] = "Create Office";
+}
+
+<h1>Create new Office delivery</h1>
+
+<div class="row">
+	<div class="col-md-4">
+		<form enctype="multipart/form-data" method="post">
+			<div class="form-group">
+				<label asp-for="CollectionFloor"></label>
+				<input type="number" min="0" max="50" step="1" placeholder="count" asp-for="CollectionFloor" class="form-control" />
+				<span asp-validation-for="CollectionFloor" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="HasCollectionFloorElevator"></label>
+				@Html.RadioButtonFor(o => o.HasCollectionFloorElevator, true) Yes
+				@Html.RadioButtonFor(o => o.HasCollectionFloorElevator, false) No
+				<span asp-validation-for="HasCollectionFloorElevator" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryFloor"></label>
+				<input type="number" min="0" max="50" step="1" placeholder="count" asp-for="DeliveryFloor" class="form-control" />
+				<span asp-validation-for="DeliveryFloor" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="HasDeliveryFloorElevator"></label>
+				@Html.RadioButtonFor(o => o.HasDeliveryFloorElevator, true) Yes
+				@Html.RadioButtonFor(o => o.HasDeliveryFloorElevator, false) No
+				<span asp-validation-for="HasDeliveryFloorElevator" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="HasDisassemblyItems"></label>
+				@Html.RadioButtonFor(o => o.HasDisassemblyItems, true) Yes
+				@Html.RadioButtonFor(o => o.HasDisassemblyItems, false) No
+				<span asp-validation-for="HasDisassemblyItems" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="HasReassemblyItems"></label>
+				@Html.RadioButtonFor(o => o.HasReassemblyItems, true) Yes
+				@Html.RadioButtonFor(o => o.HasReassemblyItems, false) No
+				<span asp-validation-for="HasReassemblyItems" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Title"></label>
+				<input asp-for="Title" class="form-control" />
+				<span asp-validation-for="Title" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="PickupLocation"></label>
+				<input asp-for="PickupLocation" class="form-control" />
+				<span asp-validation-for="PickupLocation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryLocation"></label>
+				<input asp-for="DeliveryLocation" class="form-control" />
+				<span asp-validation-for="DeliveryLocation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="CollectionDateEarliest"></label>
+				<input type="date" name="CollectionDateEarliest" required />
+				<span asp-validation-for="CollectionDateEarliest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="CollectionDateLatest"></label>
+				<input type="date" name="CollectionDateLatest" required />
+				<span asp-validation-for="CollectionDateLatest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryDateEarliest"></label>
+				<input type="date" name="DeliveryDateEarliest" required />
+				<span asp-validation-for="DeliveryDateEarliest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryDateLatest"></label>
+				<input type="date" name="DeliveryDateLatest" required />
+				<span asp-validation-for="DeliveryDateLatest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Photos"></label>
+				<div class="custom-file">
+					<input multiple asp-for="Photos" class="form-control custom-file-input" />
+					<label class="custom-file-label">Choose File...</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label asp-for="AdditionalDetails"></label>
+				<textarea asp-for="AdditionalDetails" class="form-control"></textarea>
+				<span asp-validation-for="AdditionalDetails" class="text-danger"></span>
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+	@await Html.PartialAsync("_FileInputValidationScriptsPartial")
+}

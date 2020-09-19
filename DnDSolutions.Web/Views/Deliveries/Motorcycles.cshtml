@@ -1,0 +1,50 @@
+﻿@model MotorcycleListingViewModel
+
+@{
+	ViewData["Title"] = "Motorcycles Deliveries";
+}
+
+<h1>All Motorcycles Deliveries</h1>
+
+<div class="row">
+	@foreach (var motorcycle in Model.Motorcycles)
+	{
+		@await Component.InvokeAsync(
+	   "DeliveryListItem",
+	   new
+	   {
+		   id = motorcycle.Id,
+		   title = motorcycle.Title,
+		   pickupLocation = motorcycle.PickupLocation,
+		   deliveryLocation = motorcycle.DeliveryLocation,
+		   collectionDate = motorcycle.CollectionDateEarliest,
+		   photos = motorcycle.Photos,
+		   controller = "Vehicles",
+		   action = "Motorcycles",
+	   })
+	}
+</div>
+
+@if (Model.TotalMotorcycles > Model.Motorcycles.Count())
+{
+	<ul class="pagination justify-content-center">
+		<li class="page-item @(Model.CurrentPage == 1 ? "disabled" : string.Empty)">
+			<a class="page-link"
+			   aria-label="Previous"
+			   asp-route-page="@Model.PreviousPage">
+				<span id="previous-page" aria-hidden="true">
+					Previous page
+				</span>
+			</a>
+		</li>
+		<li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : string.Empty)">
+			<a class="page-link"
+			   aria-label="Next"
+			   asp-route-page="@Model.NextPage">
+				<span id="next-page" aria-hidden="true">
+					Next page
+				</span>
+			</a>
+		</li>
+	</ul>
+}

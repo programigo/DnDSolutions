@@ -1,0 +1,150 @@
+﻿@model BoatFormModel
+
+@{
+	ViewData["Title"] = "Create Boat";
+}
+
+<h1>Create new Boat delivery</h1>
+
+<div class="row">
+	<div class="col-md-4">
+		<form enctype="multipart/form-data" method="post" onsubmit="return validateServiceCheckboxes();">
+			<div class="form-group">
+				<label asp-for="Title"></label>
+				<input asp-for="Title" class="form-control" />
+				<span asp-validation-for="Title" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Type"></label>
+				<select asp-for="Type" asp-items="Html.GetEnumSelectList<BoatType>()" class="form-control"></select>
+				<span asp-validation-for="Type" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Make"></label>
+				<input asp-for="Make" class="form-control" />
+				<span asp-validation-for="Make" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Model"></label>
+				<input asp-for="Model" class="form-control" />
+				<span asp-validation-for="Model" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Description"></label>
+				<input asp-for="Description" class="form-control" />
+				<span asp-validation-for="Description" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="MeasurementUnit"></label>
+				@Html.RadioButtonFor(m => m.MeasurementUnit, MeasurementUnit.Imperial) Imperial
+				@Html.RadioButtonFor(m => m.MeasurementUnit, MeasurementUnit.Metric) Metric
+				<span asp-validation-for="MeasurementUnit" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="LengthFirstPart">Length</label>
+				<input type="number" min="0" step="1" placeholder="meters" asp-for="LengthFirstPart" class="first-part-input form-control mb-1" />
+				<span asp-validation-for="LengthFirstPart" class="text-danger"></span>
+				<input type="number" min="0" step="1" placeholder="centimeters" asp-for="LengthSecondPart" class="second-part-input form-control" />
+				<span asp-validation-for="LengthSecondPart" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="WidthFirstPart">Width</label>
+				<input type="number" min="0" step="1" placeholder="meters" asp-for="WidthFirstPart" class="first-part-input form-control mb-1" />
+				<span asp-validation-for="WidthFirstPart" class="text-danger"></span>
+				<input type="number" min="0" step="1" placeholder="centimeters" asp-for="WidthSecondPart" class="second-part-input form-control" />
+				<span asp-validation-for="WidthSecondPart" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+
+				<label asp-for="HeightFirstPart">Height</label>
+				<input type="number" min="0" step="1" placeholder="meters" asp-for="HeightFirstPart" class="first-part-input form-control mb-1" />
+				<span asp-validation-for="HeightFirstPart" class="text-danger"></span>
+				<input type="number" min="0" step="1" placeholder="centimeters" asp-for="HeightSecondPart" class="second-part-input form-control" />
+				<span asp-validation-for="HeightSecondPart" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Weight"></label>
+				<input type="number" min="0" step="1" placeholder="kilograms" asp-for="Weight" class="weight-input form-control" />
+				<span asp-validation-for="Weight" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="IsOnTrailer"></label>
+				@Html.RadioButtonFor(m => m.IsOnTrailer, true) Yes
+				@Html.RadioButtonFor(m => m.IsOnTrailer, false) No
+				<span asp-validation-for="IsOnTrailer" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="PickupLocation"></label>
+				<input asp-for="PickupLocation" class="form-control" />
+				<span asp-validation-for="PickupLocation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryLocation"></label>
+				<input asp-for="DeliveryLocation" class="form-control" />
+				<span asp-validation-for="DeliveryLocation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="CollectionDateEarliest"></label>
+				<input type="date" name="CollectionDateEarliest" required />
+				<span asp-validation-for="CollectionDateEarliest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="CollectionDateLatest"></label>
+				<input type="date" name="CollectionDateLatest" required />
+				<span asp-validation-for="CollectionDateLatest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryDateEarliest"></label>
+				<input type="date" name="DeliveryDateEarliest" required />
+				<span asp-validation-for="DeliveryDateEarliest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryDateLatest"></label>
+				<input type="date" name="DeliveryDateLatest" required />
+				<span asp-validation-for="DeliveryDateLatest" class="text-danger"></span>
+			</div>
+			<div id="service-checkboxes-list" class="form-group">
+				<label asp-for="ServiceType"></label>
+				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.OpenTransport)" /> Open Transport
+				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.EnclosedTransport)" /> Enclosed Transport
+				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.FlatbedTransportService)" /> Flatbed Transport Service
+				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.OceanFreightContainerService)" /> Ocean Freight Container Service
+				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.SkipperDeliveryService)" /> Skipper Delivery Service
+				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.TowedService)" /> Towed Service
+				<span asp-validation-for="ServiceType" class="text-danger"></span>
+				<span class="trailer-error text-danger" style="display:none">You must select at least one service type.</span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Photos"></label>
+				<div class="custom-file">
+					<input multiple asp-for="Photos" class="form-control custom-file-input" />
+					<label class="custom-file-label">Choose File...</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label asp-for="AdditionalDetails"></label>
+				<textarea asp-for="AdditionalDetails" class="form-control"></textarea>
+				<span asp-validation-for="AdditionalDetails" class="text-danger"></span>
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+	@await Html.PartialAsync("_FileInputValidationScriptsPartial")
+	@await Html.PartialAsync("_MeasurementUnitsValidationScriptsPartial")
+
+	<script>
+		function validateServiceCheckboxes() {
+			var serviceCheckedBoxes = $("#service-checkboxes-list input[type=checkbox]:checked");
+			if (serviceCheckedBoxes.length == 0) {
+				$(".trailer-error").show();
+				return false;
+			}
+			$(".trailer-error").hide();
+			return true;
+		};
+	</script>
+}

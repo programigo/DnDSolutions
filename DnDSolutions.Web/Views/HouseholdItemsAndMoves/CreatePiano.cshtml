@@ -1,0 +1,109 @@
+﻿@model PianoFormModel
+
+@{
+	ViewData["Title"] = "Create Piano";
+}
+
+<h1>Create new Piano delivery</h1>
+
+<div class="row">
+	<div class="col-md-4">
+		<form enctype="multipart/form-data" method="post">
+			<div class="form-group">
+				<label asp-for="Title"></label>
+				<input asp-for="Title" class="form-control" />
+				<span asp-validation-for="Title" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Type"></label>
+				@Html.RadioButtonFor(p => p.Type, PianoType.Horizontal) Horizontal
+				@Html.RadioButtonFor(p => p.Type, PianoType.Vertical) Vertical
+				<span asp-validation-for="Type" class="text-danger"></span>
+			</div>
+			<div id="horizontal-type-dropdown" class="form-group" style="display:none">
+				@Html.DropDownListFor(pt => pt.HorizontalType,
+					new SelectList(Enum.GetValues(typeof(HorizontalPianoType))),
+					"Select Horizontal Piano Type",
+					new { @class = "form-control" })
+				<span asp-validation-for="HorizontalType" class="text-danger"></span>
+			</div>
+			<div id="vertical-type-dropdown" class="form-group" style="display:none">
+				@Html.DropDownListFor(pt => pt.VerticalType,
+					new SelectList(Enum.GetValues(typeof(VerticalPianoType))),
+					"Select Vertical Piano Type",
+					new { @class = "form-control" })
+				<span asp-validation-for="VerticalType" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="IsOnCasters"></label>
+				@Html.RadioButtonFor(p => p.IsOnCasters, true) Yes
+				@Html.RadioButtonFor(p => p.IsOnCasters, false) No
+				<span asp-validation-for="IsOnCasters" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="PickupLocation"></label>
+				<input asp-for="PickupLocation" class="form-control" />
+				<span asp-validation-for="PickupLocation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryLocation"></label>
+				<input asp-for="DeliveryLocation" class="form-control" />
+				<span asp-validation-for="DeliveryLocation" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="CollectionDateEarliest"></label>
+				<input type="date" name="CollectionDateEarliest" required />
+				<span asp-validation-for="CollectionDateEarliest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="CollectionDateLatest"></label>
+				<input type="date" name="CollectionDateLatest" required />
+				<span asp-validation-for="CollectionDateLatest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryDateEarliest"></label>
+				<input type="date" name="DeliveryDateEarliest" required />
+				<span asp-validation-for="DeliveryDateEarliest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="DeliveryDateLatest"></label>
+				<input type="date" name="DeliveryDateLatest" required />
+				<span asp-validation-for="DeliveryDateLatest" class="text-danger"></span>
+			</div>
+			<div class="form-group">
+				<label asp-for="Photos"></label>
+				<div class="custom-file">
+					<input multiple asp-for="Photos" class="form-control custom-file-input" />
+					<label class="custom-file-label">Choose File...</label>
+				</div>
+			</div>
+			<div class="form-group">
+				<label asp-for="AdditionalDetails"></label>
+				<textarea asp-for="AdditionalDetails" class="form-control"></textarea>
+				<span asp-validation-for="AdditionalDetails" class="text-danger"></span>
+			</div>
+			<button type="submit" class="btn btn-primary">Create</button>
+		</form>
+	</div>
+</div>
+
+@section Scripts {
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+	@await Html.PartialAsync("_FileInputValidationScriptsPartial")
+
+	<script>
+		$('input:radio[name="Type"]').change(
+			function () {
+				if ($(this).is(":checked") && $(this).val() == "Horizontal") {
+					$("#VerticalType").val(0);
+					$("#horizontal-type-dropdown").show();
+					$("#vertical-type-dropdown").hide();
+				}
+				if ($(this).is(":checked") && $(this).val() == "Vertical") {
+					$("#HorizontalType").val(0);
+					$("#vertical-type-dropdown").show();
+					$("#horizontal-type-dropdown").hide();
+				}
+			});
+	</script>
+}

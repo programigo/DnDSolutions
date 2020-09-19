@@ -1,0 +1,12 @@
+﻿@{
+	ViewData["Title"] = "Home";
+}
+
+@if (User.IsInRole(GlobalConstants.TransporterRole))
+{
+	@await Html.PartialAsync("_TransporterHomePagePartial")
+}
+@if (User.IsInRole(GlobalConstants.CustomerRole))
+{
+	@await Html.PartialAsync("_CustomerHomePagePartial")
+}

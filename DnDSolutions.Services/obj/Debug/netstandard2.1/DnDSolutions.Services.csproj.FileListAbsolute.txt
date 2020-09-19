@@ -1,0 +1,14 @@
+D:\DnDSolutions\DnDSolutions.Services\bin\Debug\netstandard2.1\DnDSolutions.Services.deps.json
+D:\DnDSolutions\DnDSolutions.Services\bin\Debug\netstandard2.1\DnDSolutions.Services.dll
+D:\DnDSolutions\DnDSolutions.Services\bin\Debug\netstandard2.1\DnDSolutions.Services.pdb
+D:\DnDSolutions\DnDSolutions.Services\bin\Debug\netstandard2.1\DnDSolutions.Data.dll
+D:\DnDSolutions\DnDSolutions.Services\bin\Debug\netstandard2.1\DnDSolutions.Data.pdb
+D:\DnDSolutions\DnDSolutions.Services\obj\Debug\netstandard2.1\DnDSolutions.Services.csprojAssemblyReference.cache
+D:\DnDSolutions\DnDSolutions.Services\obj\Debug\netstandard2.1\DnDSolutions.Services.AssemblyInfoInputs.cache
+D:\DnDSolutions\DnDSolutions.Services\obj\Debug\netstandard2.1\DnDSolutions.Services.AssemblyInfo.cs
+D:\DnDSolutions\DnDSolutions.Services\obj\Debug\netstandard2.1\DnDSolutions.Services.csproj.CopyComplete
+D:\DnDSolutions\DnDSolutions.Services\obj\Debug\netstandard2.1\DnDSolutions.Services.dll
+D:\DnDSolutions\DnDSolutions.Services\obj\Debug\netstandard2.1\DnDSolutions.Services.pdb
+D:\DnDSolutions\DnDSolutions.Services\bin\Debug\netstandard2.1\DnDSolutions.Common.dll
+D:\DnDSolutions\DnDSolutions.Services\bin\Debug\netstandard2.1\DnDSolutions.Common.pdb
+D:\DnDSolutions\DnDSolutions.Services\obj\Debug\netstandard2.1\DnDSolutions.Services.csproj.CoreCompileInputs.cache

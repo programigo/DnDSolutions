@@ -1,0 +1,39 @@
+﻿@model TransporterDetailsViewModel
+@{
+    ViewData["Title"] = "Transporter Details";
+}
+
+<h1>@Model.FirstName @Model.LastName</h1>
+
+<table class="table table-striped">
+    <tbody>
+        <tr>
+            <td><strong>Username:</strong></td>
+            <td>@Model.Username</td>
+        </tr>
+        <tr>
+            <td><strong>Email:</strong></td>
+            <td>@Model.Email</td>
+        </tr>
+        <tr>
+            <td><strong>First name:</strong></td>
+            <td>@Model.FirstName</td>
+        </tr>
+        <tr>
+            <td><strong>Last name:</strong></td>
+            <td>@Model.LastName</td>
+        </tr>
+        <tr>
+            <td><strong>Phone number:</strong></td>
+            <td>@Model.Phone</td>
+        </tr>
+        <tr>
+            <td><strong>Trailer types:</strong></td>
+            <td>@string.Join(", ", Model.TrailerTypes)</td>
+        </tr>
+        <tr>
+            <td><strong>Comodity types:</strong></td>
+            <td>@string.Join(", ", Model.ComodityTypes)</td>
+        </tr>
+    </tbody>
+</table>

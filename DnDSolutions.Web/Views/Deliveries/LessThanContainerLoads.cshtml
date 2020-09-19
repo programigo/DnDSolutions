@@ -1,0 +1,50 @@
+﻿@model LessThanContainerLoadListingViewModel
+
+@{
+	ViewData["Title"] = "Horses Deliveries";
+}
+
+<h1>All Horses Deliveries</h1>
+
+<div class="row">
+	@foreach (var lcl in Model.LCLs)
+	{
+		@await Component.InvokeAsync(
+	   "DeliveryListItem",
+	   new
+	   {
+		   id = lcl.Id,
+		   title = lcl.Title,
+		   pickupLocation = lcl.PickupLocation,
+		   deliveryLocation = lcl.DeliveryLocation,
+		   collectionDate = lcl.CollectionDateEarliest,
+		   photos = lcl.Photos,
+		   controller = "Freights",
+		   action = "LessThanContainerLoads",
+	   })
+	}
+</div>
+
+@if (Model.TotalLCLs > Model.LCLs.Count())
+{
+	<ul class="pagination justify-content-center">
+		<li class="page-item @(Model.CurrentPage == 1 ? "disabled" : string.Empty)">
+			<a class="page-link"
+			   aria-label="Previous"
+			   asp-route-page="@Model.PreviousPage">
+				<span id="previous-page" aria-hidden="true">
+					Previous page
+				</span>
+			</a>
+		</li>
+		<li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : string.Empty)">
+			<a class="page-link"
+			   aria-label="Next"
+			   asp-route-page="@Model.NextPage">
+				<span id="next-page" aria-hidden="true">
+					Next page
+				</span>
+			</a>
+		</li>
+	</ul>
+}

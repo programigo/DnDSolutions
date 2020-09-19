@@ -1,0 +1,5 @@
+D:\DnDSolutions\DnDSolutions.Services\bin\Debug\netstandard2.0\DnDSolutions.Services.deps.json
+D:\DnDSolutions\DnDSolutions.Services\bin\Debug\netstandard2.0\DnDSolutions.Services.dll
+D:\DnDSolutions\DnDSolutions.Services\obj\Debug\netstandard2.0\DnDSolutions.Services.csprojAssemblyReference.cache
+D:\DnDSolutions\DnDSolutions.Services\obj\Debug\netstandard2.0\DnDSolutions.Services.AssemblyInfoInputs.cache
+D:\DnDSolutions\DnDSolutions.Services\obj\Debug\netstandard2.0\DnDSolutions.Services.AssemblyInfo.cs

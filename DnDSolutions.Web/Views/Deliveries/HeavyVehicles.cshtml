@@ -1,0 +1,44 @@
+﻿@model HeavyVehicleListingViewModel
+
+@{
+	ViewData["Title"] = "Heavy Vehicles Deliveries";
+}
+
+<h1>All Heavy Vehicles Deliveries</h1>
+
+<div class="row">
+	@foreach (var vehicle in Model.HeavyVehicles)
+	{
+		@await Component.InvokeAsync(
+	   "DeliveryListItem",
+	   new
+	   {
+		   id = vehicle.Id,
+		   title = vehicle.Title,
+		   pickupLocation = vehicle.PickupLocation,
+		   deliveryLocation = vehicle.DeliveryLocation,
+		   collectionDate = vehicle.CollectionDateEarliest,
+		   photos = vehicle.Photos,
+		   controller = "Vehicles",
+		   action = "HeavyVehicles",
+	   })
+	}
+</div>
+
+@if (Model.TotalHeavyVehicles > Model.HeavyVehicles.Count())
+{
+	<ul class="pagination">
+		<li class="@(Model.CurrentPage == 1 ? "disabled" : string.Empty)">
+			<a asp-route-page="@Model.PreviousPage"
+			   aria-label="Previous">
+				<span id="previous-page" aria-hidden="true">Previous</span>
+			</a>
+		</li>
+		<li class="@(Model.CurrentPage == Model.TotalPages ? "disabled" : string.Empty)">
+			<a asp-route-page="@Model.NextPage"
+			   aria-label="Next">
+				<span id="next-page" aria-hidden="true">Next</span>
+			</a>
+		</li>
+	</ul>
+}
