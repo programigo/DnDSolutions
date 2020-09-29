@@ -1,67 +1,62 @@
 ﻿
 @{
-    ViewData["Title"] = "Vehicles";
+	ViewData["Title"] = "Vehicles";
 }
 
-    <div class="row">
-        <a asp-area="Vehicles" asp-controller="Cars" asp-action="Create" class="card-link">
-            <div class="card" style="max-width: 20rem;">
-                <img src="~/images/vehicles-category.png" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-description"><b>CARS</b></h5>
-                </div>
-            </div>
-        </a>
-        <a asp-area="Vehicles" asp-controller="Motorcycles" asp-action="Create" class="card-link">
-            <div class="card" style="max-width: 20rem;">
-                <img src="~/images/motorcycle.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-description"><b>MOTORCYCLES</b></h5>
-                </div>
-            </div>
-        </a>
-        <a asp-area="Vehicles" asp-controller="ATVS" asp-action="Create" class="card-link">
-            <div class="card" style="max-width: 20rem;">
-                <img src="~/images/motorcycle.jpg" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-description"><b>ATVS</b></h5>
-                </div>
-            </div>
-        </a>
-        <a asp-area="Vehicles" asp-controller="RecreationalVehicles" asp-action="Create" class="card-link">
-            <div class="card" style="max-width: 20rem;">
-                <img src="~/images/vehicles-category.png" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-description"><b>RECREATIONAL VEHICLES</b></h5>
-                </div>
-            </div>
-        </a>
-        <a asp-area="Vehicles" asp-controller="HeavyVehicles" asp-action="Create" class="card-link">
-            <div class="card" style="max-width: 20rem;">
-                <img src="~/images/vehicles-category.png" class="card-img-top">
-                <div class="card-body">
-                    <h5 class="card-description"><b>HEAVY VEHICLES</b></h5>
-                </div>
-            </div>
-        </a>
-    </div>
+<div class="row">
+	<div class="card" style="max-width: 20rem;">
+		<img src="~/images/vehicles-category.png" class="card-img-top">
+		<div class="card-body">
+			<h5 class="card-description"><b>CARS</b></h5>
+			<a class="stretched-link" asp-area="Vehicles" asp-controller="Cars" asp-action="Create"></a>
+		</div>
+	</div>
+	<div class="card" style="max-width: 20rem;">
+		<img src="~/images/motorcycle.jpg" class="card-img-top">
+		<div class="card-body">
+			<h5 class="card-description"><b>MOTORCYCLES</b></h5>
+			<a class="stretched-link" asp-area="Vehicles" asp-controller="Motorcycles" asp-action="Create"></a>
+		</div>
+	</div>
+	<div class="card" style="max-width: 20rem;">
+		<img src="~/images/motorcycle.jpg" class="card-img-top">
+		<div class="card-body">
+			<h5 class="card-description"><b>ATVS</b></h5>
+			<a class="stretched-link" asp-area="Vehicles" asp-controller="ATVS" asp-action="Create"></a>
+		</div>
+	</div>
+	<div class="card" style="max-width: 20rem;">
+		<img src="~/images/vehicles-category.png" class="card-img-top">
+		<div class="card-body">
+			<h5 class="card-description"><b>RECREATIONAL VEHICLES</b></h5>
+			<a class="stretched-link" asp-area="Vehicles" asp-controller="RecreationalVehicles" asp-action="Create"></a>
+		</div>
+	</div>
+	<div class="card" style="max-width: 20rem;">
+		<img src="~/images/vehicles-category.png" class="card-img-top">
+		<div class="card-body">
+			<h5 class="card-description"><b>HEAVY VEHICLES</b></h5>
+			<a class="stretched-link" asp-area="Vehicles" asp-controller="HeavyVehicles" asp-action="Create"></a>
+		</div>
+	</div>
+</div>
 
 <style>
-    .card {
-        margin-right: 20px;
-        margin-bottom: 20px;
-    }
+	.card {
+		margin-right: 20px;
+		margin-bottom: 20px;
+	}
 
-        .card:hover {
-            border-color: deepskyblue;
-        }
+		.card:hover {
+			border-color: deepskyblue;
+		}
 
-    .card-link {
-        text-decoration: none;
-    }
+	.card-link {
+		text-decoration: none;
+	}
 
-    .card-description {
-        text-align: center;
-    }
+	.card-description {
+		text-align: center;
+	}
 </style>
 

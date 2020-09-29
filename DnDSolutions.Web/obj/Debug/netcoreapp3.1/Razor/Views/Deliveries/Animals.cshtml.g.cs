@@ -175,13 +175,20 @@ using DnDSolutions.Data;
 #nullable disable
 #nullable restore
 #line 24 "D:\DnDSolutions\DnDSolutions.Web\Views\_ViewImports.cshtml"
+using DnDSolutions.Web.Models.Messages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 25 "D:\DnDSolutions\DnDSolutions.Web\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"ea008550c3135673cf5408eec007f35260b1143e", @"/Views/Deliveries/Animals.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f1ceddae098880946682a3b718765ae61a6892d1", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6237ba8e6e6d034ff6b1b77ab83394b44b8b0b4e", @"/Views/_ViewImports.cshtml")]
     public class Views_Deliveries_Animals : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<AnimalListingViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("card-img"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -238,7 +245,7 @@ using Microsoft.AspNetCore.Identity;
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e11062", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e11243", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -272,7 +279,7 @@ AddHtmlAttributeValue("", 219, cat.Photos.First().Path, 219, 24, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e12831", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e13012", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -295,7 +302,7 @@ AddHtmlAttributeValue("", 219, cat.Photos.First().Path, 219, 24, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t<div class=\"card-body\">\r\n\t\t\t\t\t<h4 class=\"card-title\">\r\n\t\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e14218", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e14399", async() => {
 #nullable restore
 #line 18 "D:\DnDSolutions\DnDSolutions.Web\Views\Deliveries\Animals.cshtml"
                                                                                         Write(cat.Title);
@@ -392,7 +399,7 @@ AddHtmlAttributeValue("", 219, cat.Photos.First().Path, 219, 24, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e18878", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e19059", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -426,7 +433,7 @@ AddHtmlAttributeValue("", 1066, dog.Photos.First().Path, 1066, 24, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e20651", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e20832", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -449,7 +456,7 @@ AddHtmlAttributeValue("", 1066, dog.Photos.First().Path, 1066, 24, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t<div class=\"card-body\">\r\n\t\t\t\t\t<h4 class=\"card-title\">\r\n\t\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e22038", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e22219", async() => {
 #nullable restore
 #line 43 "D:\DnDSolutions\DnDSolutions.Web\Views\Deliveries\Animals.cshtml"
                                                                                         Write(dog.Title);
@@ -546,7 +553,7 @@ AddHtmlAttributeValue("", 1066, dog.Photos.First().Path, 1066, 24, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e26704", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e26885", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -580,7 +587,7 @@ AddHtmlAttributeValue("", 1919, horse.Photos.First().Path, 1919, 26, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e28479", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e28660", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -603,7 +610,7 @@ AddHtmlAttributeValue("", 1919, horse.Photos.First().Path, 1919, 26, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t<div class=\"card-body\">\r\n\t\t\t\t\t<h4 class=\"card-title\">\r\n\t\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e29866", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e30047", async() => {
 #nullable restore
 #line 68 "D:\DnDSolutions\DnDSolutions.Web\Views\Deliveries\Animals.cshtml"
                                                                                             Write(horse.Title);
@@ -700,7 +707,7 @@ AddHtmlAttributeValue("", 1919, horse.Photos.First().Path, 1919, 26, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e34563", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e34744", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -734,7 +741,7 @@ AddHtmlAttributeValue("", 2801, livestock.Photos.First().Path, 2801, 30, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e36342", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("img", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagOnly, "ea008550c3135673cf5408eec007f35260b1143e36523", async() => {
             }
             );
             __Microsoft_AspNetCore_Mvc_Razor_TagHelpers_UrlResolutionTagHelper = CreateTagHelper<global::Microsoft.AspNetCore.Mvc.Razor.TagHelpers.UrlResolutionTagHelper>();
@@ -757,7 +764,7 @@ AddHtmlAttributeValue("", 2801, livestock.Photos.First().Path, 2801, 30, false);
 #line hidden
 #nullable disable
             WriteLiteral("\t\t\t\t<div class=\"card-body\">\r\n\t\t\t\t\t<h4 class=\"card-title\">\r\n\t\t\t\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e37729", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e37910", async() => {
 #nullable restore
 #line 93 "D:\DnDSolutions\DnDSolutions.Web\Views\Deliveries\Animals.cshtml"
                                                                                                    Write(livestock.Title);
@@ -856,7 +863,7 @@ WriteAttributeValue(" ", 3733, Model.CurrentPage == 1 ? "disabled" : string.Empt
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e42756", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e42937", async() => {
                 WriteLiteral("\r\n\t\t\t\t<span id=\"previous-page\" aria-hidden=\"true\">\r\n\t\t\t\t\tPrevious page\r\n\t\t\t\t</span>\r\n\t\t\t");
             }
             );
@@ -898,7 +905,7 @@ WriteAttributeValue(" ", 4013, Model.CurrentPage == Model.TotalPages ? "disabled
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e45474", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ea008550c3135673cf5408eec007f35260b1143e45655", async() => {
                 WriteLiteral("\r\n\t\t\t\t<span id=\"next-page\" aria-hidden=\"true\">\r\n\t\t\t\t\tNext page\r\n\t\t\t\t</span>\r\n\t\t\t");
             }
             );

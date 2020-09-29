@@ -59,5 +59,20 @@ namespace DnDSolutions.Services.Implementations
 
 			return result;
 		}
+
+		public List<MessageListingServiceModel> GetAllUserMessages(string userId)
+			=> this.db
+				.Messages
+				.Where(m => m.UserId == userId || m.RecipientId == userId)
+				.ProjectTo<MessageListingServiceModel>(this.provider)
+				.ToList();
+
+		public MessageListingServiceModel GetConversationLastMessage(string senderId, string recipientId)
+			=> this.db
+				.Messages
+				.Where(m => (m.UserId == senderId && m.RecipientId == recipientId) || (m.UserId == recipientId && m.RecipientId == senderId))
+				.OrderByDescending(m => m.SendOn)
+				.ProjectTo<MessageListingServiceModel>(this.provider)
+				.FirstOrDefault();
 	}
 }

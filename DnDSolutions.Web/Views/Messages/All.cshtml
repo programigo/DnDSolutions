@@ -1,0 +1,16 @@
+﻿@model List<MessageItemViewModel>
+
+@foreach (var message in Model)
+{
+	<div class="card">
+		<div class="card-body">
+			<h5 class="card-title">
+				@message.Username
+			</h5>
+			<p class="card-text">
+				@message.Text
+			</p>
+			<a class="stretched-link" asp-controller="Messages" asp-action="Index" asp-route-recipientId="@message.UserId"></a>
+		</div>
+	</div>
+}

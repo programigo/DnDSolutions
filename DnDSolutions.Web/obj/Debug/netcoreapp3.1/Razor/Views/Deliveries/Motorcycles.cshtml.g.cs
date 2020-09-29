@@ -175,13 +175,20 @@ using DnDSolutions.Data;
 #nullable disable
 #nullable restore
 #line 24 "D:\DnDSolutions\DnDSolutions.Web\Views\_ViewImports.cshtml"
+using DnDSolutions.Web.Models.Messages;
+
+#line default
+#line hidden
+#nullable disable
+#nullable restore
+#line 25 "D:\DnDSolutions\DnDSolutions.Web\Views\_ViewImports.cshtml"
 using Microsoft.AspNetCore.Identity;
 
 #line default
 #line hidden
 #nullable disable
     [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"2ef4f7864e7589cf0c2ddf61444ea4f7ce0865d9", @"/Views/Deliveries/Motorcycles.cshtml")]
-    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"f1ceddae098880946682a3b718765ae61a6892d1", @"/Views/_ViewImports.cshtml")]
+    [global::Microsoft.AspNetCore.Razor.Hosting.RazorSourceChecksumAttribute(@"SHA1", @"6237ba8e6e6d034ff6b1b77ab83394b44b8b0b4e", @"/Views/_ViewImports.cshtml")]
     public class Views_Deliveries_Motorcycles : global::Microsoft.AspNetCore.Mvc.Razor.RazorPage<MotorcycleListingViewModel>
     {
         private static readonly global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute __tagHelperAttribute_0 = new global::Microsoft.AspNetCore.Razor.TagHelpers.TagHelperAttribute("class", new global::Microsoft.AspNetCore.Html.HtmlString("page-link"), global::Microsoft.AspNetCore.Razor.TagHelpers.HtmlAttributeValueStyle.DoubleQuotes);
@@ -278,7 +285,7 @@ WriteAttributeValue(" ", 748, Model.CurrentPage == 1 ? "disabled" : string.Empty
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ef4f7864e7589cf0c2ddf61444ea4f7ce0865d910199", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ef4f7864e7589cf0c2ddf61444ea4f7ce0865d910380", async() => {
                 WriteLiteral("\r\n\t\t\t\t<span id=\"previous-page\" aria-hidden=\"true\">\r\n\t\t\t\t\tPrevious page\r\n\t\t\t\t</span>\r\n\t\t\t");
             }
             );
@@ -320,7 +327,7 @@ WriteAttributeValue(" ", 1028, Model.CurrentPage == Model.TotalPages ? "disabled
 #nullable disable
             EndWriteAttribute();
             WriteLiteral(">\r\n\t\t\t");
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ef4f7864e7589cf0c2ddf61444ea4f7ce0865d912923", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("a", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "2ef4f7864e7589cf0c2ddf61444ea4f7ce0865d913104", async() => {
                 WriteLiteral("\r\n\t\t\t\t<span id=\"next-page\" aria-hidden=\"true\">\r\n\t\t\t\t\tNext page\r\n\t\t\t\t</span>\r\n\t\t\t");
             }
             );
