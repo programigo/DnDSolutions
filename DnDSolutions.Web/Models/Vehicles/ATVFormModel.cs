@@ -10,6 +10,7 @@ namespace DnDSolutions.Web.Models.Vehicles
         public string ItemDescription { get; set; }
 
         [Required]
+        [Display(Name = "Measurement Unit")]
         public MeasurementUnit MeasurementUnit { get; set; }
 
         [Required(ErrorMessage = "This field is required.")]

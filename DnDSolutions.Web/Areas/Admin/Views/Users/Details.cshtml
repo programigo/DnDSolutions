@@ -1,0 +1,87 @@
+﻿@model AdminUserDetailsViewModel
+
+@{
+	ViewData["Title"] = "User Details";
+}
+
+<h1>
+	@Model.FirstName @Model.LastName
+</h1>
+
+<table class="table table-striped">
+	<tbody>
+		<tr>
+			<td>
+				<strong>
+					Username:
+				</strong>
+			</td>
+			<td>
+				@Model.Username
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>
+					Email:
+				</strong>
+			</td>
+			<td>
+				@Model.Email
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>
+					First name:
+				</strong>
+			</td>
+			<td>
+				@Model.FirstName
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>
+					Last name:
+				</strong>
+			</td>
+			<td>
+				@Model.LastName
+			</td>
+		</tr>
+		<tr>
+			<td>
+				<strong>
+					Phone number:
+				</strong>
+			</td>
+			<td>
+				@Model.Phone
+			</td>
+		</tr>
+		@if (Model.Role == DnDSolutions.Web.GlobalConstants.TransporterRole)
+		{
+			<tr>
+				<td>
+					<strong>
+						Trailer Types:
+					</strong>
+				</td>
+				<td>
+					@Model.TrailerType
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<strong>
+						Comodity Types:
+					</strong>
+				</td>
+				<td>
+					@Model.ComodityType
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

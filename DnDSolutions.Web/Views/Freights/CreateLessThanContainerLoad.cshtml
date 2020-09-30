@@ -25,9 +25,25 @@
 				<span asp-validation-for="HandlingUnit" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="MeasurementUnit"></label>
-				@Html.RadioButtonFor(lcl => lcl.MeasurementUnit, MeasurementUnit.Imperial) Imperial
-				@Html.RadioButtonFor(lcl => lcl.MeasurementUnit, MeasurementUnit.Metric) Metric
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Measurement unit
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(lcl => lcl.MeasurementUnit, MeasurementUnit.Imperial, new { id = "imperial-checkbox" })
+							<label for="imperial-checkbox">
+								Imperial
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(lcl => lcl.MeasurementUnit, MeasurementUnit.Metric, new { id = "metric-checkbox" })
+							<label for="metric-checkbox">
+								Metric
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="MeasurementUnit" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -63,15 +79,47 @@
 				<span asp-validation-for="Quantity" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="IsStackable"></label>
-				@Html.RadioButtonFor(lcl => lcl.IsStackable, true) Yes
-				@Html.RadioButtonFor(lcl => lcl.IsStackable, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Is stackable?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(lcl => lcl.IsStackable, true, new { id = "is-stackable-radio-button" })
+							<label for="is-stackable-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(lcl => lcl.IsStackable, false, new { id = "is-not-stackable-radio-button" })
+							<label for="is-not-stackable-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="IsStackable" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="IsHazardous"></label>
-				@Html.RadioButtonFor(lcl => lcl.IsHazardous, true) Yes
-				@Html.RadioButtonFor(lcl => lcl.IsHazardous, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Is hazardous?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(lcl => lcl.IsHazardous, true, new { id = "is-hazardous-radio-button" })
+							<label for="is-hazardous-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(lcl => lcl.IsHazardous, false, new { id = "is-not-hazardous-radio-button" })
+							<label for="is-not-hazardous-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="IsHazardous" class="text-danger"></span>
 			</div>
 			<div class="form-group">

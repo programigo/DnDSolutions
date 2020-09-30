@@ -10,21 +10,23 @@ namespace DnDSolutions.Web.Models.Freights
 		public LessThanContainerLoadType Type { get; set; }
 
 		[Required]
+		[Display(Name = "Handling unit")]
 		public HandlingUnitType HandlingUnit { get; set; }
 
+		[Display(Name = "Measurement unit")]
 		public MeasurementUnit MeasurementUnit { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "This field is required.")]
 		public int LengthFirstPart { get; set; }
 
 		public int? LengthSecondPart { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "This field is required.")]
 		public int WidthFirstPart { get; set; }
 
 		public int? WidthSecondPart { get; set; }
 
-		[Required]
+		[Required(ErrorMessage = "This field is required.")]
 		public int HeightFirstPart { get; set; }
 
 		public int? HeightSecondPart { get; set; }

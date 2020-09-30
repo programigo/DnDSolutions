@@ -25,27 +25,91 @@
 				<span asp-validation-for="Title" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="IsPalletised"></label>
-				@Html.RadioButtonFor(m => m.IsPalletised, true) Yes
-				@Html.RadioButtonFor(m => m.IsPalletised, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Is palletised?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.IsPalletised, true, new { id = "is-palletised-radio-button" })
+							<label for="is-palletised-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.IsPalletised, false, new { id = "is-not-palletised-radio-button" })
+							<label for="is-not-palletised-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="IsPalletised" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="IsCrated"></label>
-				@Html.RadioButtonFor(m => m.IsCrated, true) Yes
-				@Html.RadioButtonFor(m => m.IsCrated, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Is crated?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.IsCrated, true, new { id = "is-crated-radio-button" })
+							<label for="is-crated-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.IsCrated, false, new { id = "is-not-crated-radio-button" })
+							<label for="is-not-crated-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="IsCrated" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="IsStickable"></label>
-				@Html.RadioButtonFor(m => m.IsStickable, true) Yes
-				@Html.RadioButtonFor(m => m.IsStickable, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Is stickable?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.IsStickable, true, new { id = "is-stickable-radio-button" })
+							<label for="is-stickable-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.IsStickable, false, new { id = "is-not-stickable-radio-button" })
+							<label for="is-not-stickable-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="IsStickable" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="MeasurementUnit"></label>
-				@Html.RadioButtonFor(m => m.MeasurementUnit, MeasurementUnit.Imperial) Imperial
-				@Html.RadioButtonFor(m => m.MeasurementUnit, MeasurementUnit.Metric) Metric
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Measurement unit
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.MeasurementUnit, MeasurementUnit.Imperial, new { id = "imperial-checkbox" })
+							<label for="imperial-checkbox">
+								Imperial
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.MeasurementUnit, MeasurementUnit.Metric, new { id = "metric-checkbox" })
+							<label for="metric-checkbox">
+								Metric
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="MeasurementUnit" class="text-danger"></span>
 			</div>
 			<div class="form-group">

@@ -30,27 +30,92 @@
 				<span asp-validation-for="TotalWeight" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="HasAllVaccinations"></label>
-				@Html.RadioButtonFor(m => m.HasAllVaccinations, true) Yes
-				@Html.RadioButtonFor(m => m.HasAllVaccinations, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Has all vaccinations?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.HasAllVaccinations, true, new { id = "has-vaccinations-radio-button" })
+							<label for="has-vaccinations-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.HasAllVaccinations, false, new { id = "has-not-vaccinations-radio-button" })
+							<label for="has-not-vaccinations-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="HasAllVaccinations" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="HasAllTags"></label>
-				@Html.RadioButtonFor(m => m.HasAllTags, true) Yes
-				@Html.RadioButtonFor(m => m.HasAllTags, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Has all tags?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.HasAllTags, true, new { id = "has-tags-radio-button" })
+							<label for="has-tags-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.HasAllTags, false, new { id = "has-not-tags-radio-button" })
+							<label for="has-not-tags-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="HasAllTags" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="HasSpecificNeeds"></label>
-				@Html.RadioButtonFor(m => m.HasSpecificNeeds, true) Yes
-				@Html.RadioButtonFor(m => m.HasSpecificNeeds, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Has specific needs?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.HasSpecificNeeds, true, new { id = "has-needs-radio-button" })
+							<label for="has-needs-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.HasSpecificNeeds, false, new { id = "has-not-needs-radio-button" })
+							<label for="has-not-needs-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="HasSpecificNeeds" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="IsInCorral"></label>
-				@Html.RadioButtonFor(m => m.IsInCorral, true) Yes
-				@Html.RadioButtonFor(m => m.IsInCorral, false) No
+
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Is in coral?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.IsInCorral, true, new { id = "has-corral-radio-button" })
+							<label for="has-corral-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.IsInCorral, false, new { id = "has-not-corral-radio-button" })
+							<label for="has-not-corral-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="IsInCorral" class="text-danger"></span>
 			</div>
 			<div class="form-group">

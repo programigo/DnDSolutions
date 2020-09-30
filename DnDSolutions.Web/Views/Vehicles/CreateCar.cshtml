@@ -61,9 +61,25 @@
 				<span asp-validation-for="DeliveryDateLatest" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="ServiceType"></label>
-				@Html.RadioButtonFor(m => m.ServiceType, ServiceType.OpenTransport) Open Transport
-				@Html.RadioButtonFor(m => m.ServiceType, ServiceType.EnclosedTransport) Enclosed Transport
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Service Type
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.ServiceType, ServiceType.OpenTransport, new { id = "open-transport-radio-button" })
+							<label for="open-transport-radio-button">
+								Open Transport
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.ServiceType, ServiceType.EnclosedTransport, new { id = "enclosed-transport-radio-button" })
+							<label for="enclosed-transport-radio-button">
+								Enclosed Transport
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="ServiceType" class="text-danger"></span>
 			</div>
 			<div class="form-group">

@@ -15,9 +15,25 @@
 				<span asp-validation-for="CollectionFloor" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="HasCollectionFloorElevator"></label>
-				@Html.RadioButtonFor(o => o.HasCollectionFloorElevator, true) Yes
-				@Html.RadioButtonFor(o => o.HasCollectionFloorElevator, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Does the collection floor have elevator?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(o => o.HasCollectionFloorElevator, true, new { id = "has-collection-floor-elevator-radio-button" })
+							<label for="has-collection-floor-elevator-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(o => o.HasCollectionFloorElevator, false, new { id = "has-no-collection-floor-elevator-radio-button" })
+							<label for="has-no-collection-floor-elevator-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="HasCollectionFloorElevator" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -26,21 +42,69 @@
 				<span asp-validation-for="DeliveryFloor" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="HasDeliveryFloorElevator"></label>
-				@Html.RadioButtonFor(o => o.HasDeliveryFloorElevator, true) Yes
-				@Html.RadioButtonFor(o => o.HasDeliveryFloorElevator, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Does the delivery floor have elevator?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(o => o.HasDeliveryFloorElevator, true, new { id = "has-delivery-floor-elevator-radio-button" })
+							<label for="has-delivery-floor-elevator-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(o => o.HasDeliveryFloorElevator, false, new { id = "has-no-delivery-floor-elevator-radio-button" })
+							<label for="has-no-delivery-floor-elevator-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="HasDeliveryFloorElevator" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="HasDisassemblyItems"></label>
-				@Html.RadioButtonFor(o => o.HasDisassemblyItems, true) Yes
-				@Html.RadioButtonFor(o => o.HasDisassemblyItems, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Has disassembly items?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(o => o.HasDisassemblyItems, true, new { id = "has-disassembly-items-radio-button" })
+							<label for="has-disassembly-items-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(o => o.HasDisassemblyItems, false, new { id = "has-no-disassembly-items-radio-button" })
+							<label for="has-no-disassembly-items-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="HasDisassemblyItems" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="HasReassemblyItems"></label>
-				@Html.RadioButtonFor(o => o.HasReassemblyItems, true) Yes
-				@Html.RadioButtonFor(o => o.HasReassemblyItems, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Has reassembly items?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(o => o.HasReassemblyItems, true, new { id = "has-reassembly-items-radio-button" })
+							<label for="has-reassembly-items-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(o => o.HasReassemblyItems, false, new { id = "has-no-reassembly-items-radio-button" })
+							<label for="has-no-reassembly-items-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="HasReassemblyItems" class="text-danger"></span>
 			</div>
 			<div class="form-group">

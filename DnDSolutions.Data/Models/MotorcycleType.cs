@@ -1,15 +1,26 @@
-﻿namespace DnDSolutions.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DnDSolutions.Data.Models
 {
     public enum MotorcycleType
     {
-        Cabin = 0,
-        Cruiser = 1,
-        DualSport = 2,
-        Moped = 3,
-        Motocross = 4,
-        Scooter = 5,
-        SportBike = 6,
-        Standard = 7,
-        Tourer = 8,
+        [Display(Name = "Cabin")]
+        Cabin,
+        [Display(Name = "Cruiser")]
+        Cruiser,
+        [Display(Name = "Dual Sport")]
+        DualSport,
+        [Display(Name = "Moped")]
+        Moped,
+        [Display(Name = "Motocross")]
+        Motocross,
+        [Display(Name = "Scooter")]
+        Scooter,
+        [Display(Name = "Sport Bike")]
+        SportBike,
+        [Display(Name = "Standard")]
+        Standard,
+        [Display(Name = "Tourer")]
+        Tourer,
     }
 }

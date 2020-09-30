@@ -15,29 +15,57 @@
 				<span asp-validation-for="Title" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="Type"></label>
-				@Html.RadioButtonFor(p => p.Type, PianoType.Horizontal) Horizontal
-				@Html.RadioButtonFor(p => p.Type, PianoType.Vertical) Vertical
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Type
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(p => p.Type, PianoType.Horizontal, new { id = "horizontal-type-radio-button" })
+							<label for="horizontal-type-radio-button">
+								Horizontal
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(p => p.Type, PianoType.Vertical, new { id = "vertical-type-radio-button" })
+							<label for="vertical-type-radio-button">
+								Vertical
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="Type" class="text-danger"></span>
 			</div>
 			<div id="horizontal-type-dropdown" class="form-group" style="display:none">
-				@Html.DropDownListFor(pt => pt.HorizontalType,
-					new SelectList(Enum.GetValues(typeof(HorizontalPianoType))),
-					"Select Horizontal Piano Type",
-					new { @class = "form-control" })
+				<label asp-for="HorizontalType"></label>
+				<select asp-for="HorizontalType" asp-items="Html.GetEnumSelectList<HorizontalPianoType>()" class="form-control"></select>
 				<span asp-validation-for="HorizontalType" class="text-danger"></span>
 			</div>
 			<div id="vertical-type-dropdown" class="form-group" style="display:none">
-				@Html.DropDownListFor(pt => pt.VerticalType,
-					new SelectList(Enum.GetValues(typeof(VerticalPianoType))),
-					"Select Vertical Piano Type",
-					new { @class = "form-control" })
+				<label asp-for="VerticalType"></label>
+				<select asp-for="VerticalType" asp-items="Html.GetEnumSelectList<VerticalPianoType>()" class="form-control"></select>
 				<span asp-validation-for="VerticalType" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="IsOnCasters"></label>
-				@Html.RadioButtonFor(p => p.IsOnCasters, true) Yes
-				@Html.RadioButtonFor(p => p.IsOnCasters, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Is on casters?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(p => p.IsOnCasters, true, new { id = "is-on-casters-radio-button" })
+							<label for="is-on-casters-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(p => p.IsOnCasters, false, new { id = "is-not-on-casters-radio-button" })
+							<label for="is-not-on-casters-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="IsOnCasters" class="text-danger"></span>
 			</div>
 			<div class="form-group">

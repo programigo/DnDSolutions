@@ -1,13 +1,22 @@
-﻿namespace DnDSolutions.Data.Models
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace DnDSolutions.Data.Models
 {
     public enum CamperType
     {
-        ClassAMotorhome = 0,
-        ClassBMotorhome = 1,
-        ClassCMotorhome = 2,
-        TravelTrailer = 3,
-        FoldingTentTrailer = 4,
-        FifthWheel = 5,
-        TruckCamper = 6,
+        [Display(Name = "Class A Motorhome")]
+        ClassAMotorhome,
+        [Display(Name = "Class B Motorhome")]
+        ClassBMotorhome,
+        [Display(Name = "Class C Motorhome")]
+        ClassCMotorhome,
+        [Display(Name = "Travel Trailer")]
+        TravelTrailer,
+        [Display(Name = "Folding Tent Trailer")]
+        FoldingTentTrailer,
+        [Display(Name = "Fifth Wheel")]
+        FifthWheel,
+        [Display(Name = "Truck Camper")]
+        TruckCamper,
     }
 }

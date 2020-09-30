@@ -35,9 +35,25 @@
 				<span asp-validation-for="Description" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="MeasurementUnit"></label>
-				@Html.RadioButtonFor(m => m.MeasurementUnit, MeasurementUnit.Imperial) Imperial
-				@Html.RadioButtonFor(m => m.MeasurementUnit, MeasurementUnit.Metric) Metric
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Measurement unit
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.MeasurementUnit, MeasurementUnit.Imperial, new { id = "imperial-checkbox" })
+							<label for="imperial-checkbox">
+								Imperial
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.MeasurementUnit, MeasurementUnit.Metric, new { id = "metric-checkbox" })
+							<label for="metric-checkbox">
+								Metric
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="MeasurementUnit" class="text-danger"></span>
 			</div>
 			<div class="form-group">
@@ -68,9 +84,25 @@
 				<span asp-validation-for="Weight" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="IsOnTrailer"></label>
-				@Html.RadioButtonFor(m => m.IsOnTrailer, true) Yes
-				@Html.RadioButtonFor(m => m.IsOnTrailer, false) No
+				<div class="row">
+					<div class="col">
+						<legend class="col-form-label">
+							Is on trailer?
+						</legend>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.IsOnTrailer, true, new { id = "is-on-trailer-radio-button" })
+							<label for="is-on-trailer-radio-button">
+								Yes
+							</label>
+						</div>
+						<div class="form-check">
+							@Html.RadioButtonFor(m => m.IsOnTrailer, false, new { id = "is-not-on-trailer-radio-button" })
+							<label for="is-not-on-trailer-radio-button">
+								No
+							</label>
+						</div>
+					</div>
+				</div>
 				<span asp-validation-for="IsOnTrailer" class="text-danger"></span>
 			</div>
 			<div class="form-group">
