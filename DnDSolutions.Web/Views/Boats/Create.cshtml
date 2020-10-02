@@ -136,13 +136,50 @@
 				<span asp-validation-for="DeliveryDateLatest" class="text-danger"></span>
 			</div>
 			<div id="service-checkboxes-list" class="form-group">
-				<label asp-for="ServiceType"></label>
-				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.OpenTransport)" /> Open Transport
-				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.EnclosedTransport)" /> Enclosed Transport
-				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.FlatbedTransportService)" /> Flatbed Transport Service
-				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.OceanFreightContainerService)" /> Ocean Freight Container Service
-				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.SkipperDeliveryService)" /> Skipper Delivery Service
-				<input type="checkbox" name="ServiceType" value="@((int)BoatServiceType.TowedService)" /> Towed Service
+				Service Type
+
+				<div class="form-check">
+					<input id="open-transport-checkbox" class="form-check-input" type="checkbox" value="@((int)BoatServiceType.OpenTransport)" />
+					<label class="form-check-label" for="open-transport-checkbox">
+						Open Transport
+					</label>
+				</div>
+
+				<div class="form-check">
+					<input id="enclosed-transport-checkbox" class="form-check-input" type="checkbox" value="@((int)BoatServiceType.EnclosedTransport)" />
+					<label class="form-check-label" for="enclosed-transport-checkbox">
+						Enclosed Transport
+					</label>
+				</div>
+
+				<div class="form-check">
+					<input id="flatbed-transport-checkbox" class="form-check-input" type="checkbox" value="@((int)BoatServiceType.FlatbedTransportService)" />
+					<label class="form-check-label" for="flatbed-transport-checkbox">
+						Flatbed Transport Service
+					</label>
+				</div>
+
+				<div class="form-check">
+					<input id="ocean-freight-container-checkbox" class="form-check-input" type="checkbox" value="@((int)BoatServiceType.OceanFreightContainerService)" />
+					<label class="form-check-label" for="ocean-freight-container-checkbox">
+						Ocean Freight Container Service
+					</label>
+				</div>
+
+				<div class="form-check">
+					<input id="skipper-delivery-checkbox" class="form-check-input" type="checkbox" value="@((int)BoatServiceType.SkipperDeliveryService)" />
+					<label class="form-check-label" for="skipper-delivery-checkbox">
+						Skipper Delivery Service
+					</label>
+				</div>
+
+				<div class="form-check">
+					<input id="towed-service-checkbox" class="form-check-input" type="checkbox" value="@((int)BoatServiceType.TowedService)" />
+					<label class="form-check-label" for="towed-service-checkbox">
+						Towed Service
+					</label>
+				</div>
+
 				<span asp-validation-for="ServiceType" class="text-danger"></span>
 				<span class="trailer-error text-danger" style="display:none">You must select at least one service type.</span>
 			</div>
