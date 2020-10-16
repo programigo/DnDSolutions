@@ -21,5 +21,7 @@ namespace DnDSolutions.Web.Models.Deliveries
 		public string Controller { get; set; }
 
 		public string Action { get; set; }
+
+		public string RemovingAction { get; set; }
 	}
 }

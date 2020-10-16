@@ -24,5 +24,9 @@
 		{
 			@await Html.PartialAsync("_BidFormPartial", new BidFormModel { DeliveryId = Model.Id, DeliveryTitle = Model.Title })
 		}
+		@if (User.IsInRole(GlobalConstants.AdministratorRole) || User.IsInRole(GlobalConstants.ModeratorRole))
+		{
+			<a asp-area="Admin" asp-controller="Deliveries" asp-action="@Model.RemovingAction" asp-route-id="@Model.Id" class="btn btn-danger">Remove</a>
+		}
 	</div>
 </div>

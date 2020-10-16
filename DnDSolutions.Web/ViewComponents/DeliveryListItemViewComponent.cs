@@ -16,7 +16,8 @@ namespace DnDSolutions.Web.ViewComponents
 			DateTime collectionDate,
 			List<Photo> photos,
 			string controller,
-			string action)
+			string action,
+			string removingAction)
 		{
 			DeliveryListItemModel deliveryListItemModel = new DeliveryListItemModel
 			{
@@ -28,6 +29,7 @@ namespace DnDSolutions.Web.ViewComponents
 				Photos = photos,
 				Controller = controller,
 				Action = action,
+				RemovingAction = removingAction,
 			};
 
 			return View(deliveryListItemModel);
