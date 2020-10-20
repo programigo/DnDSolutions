@@ -3,11 +3,13 @@ using DnDSolutions.Data;
 using DnDSolutions.Data.Models;
 using DnDSolutions.Services;
 using DnDSolutions.Web.Infrastructure.Extensions;
+using DnDSolutions.Web.Infrastructure.Slugify;
 using DnDSolutions.Web.SignalRChat.Hubs;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -49,9 +51,17 @@ namespace DnDSolutions.Web
 
 			services.AddControllersWithViews();
 
-			services.AddRazorPages();
+			services.AddRazorPages(options =>
+			{
+				options.Conventions.Add(new PageRouteTransformerConvention(new SlugifyParameterTransformer()));
+			});
 
 			services.AddSignalR();
+
+			services.AddRouting(option =>
+			{
+				option.ConstraintMap["slugify"] = typeof(SlugifyParameterTransformer);
+			});
 
 			services.AddMvc(options =>
 			{
@@ -86,31 +96,32 @@ namespace DnDSolutions.Web
 				endpoints.MapAreaControllerRoute(
 					name: "admin",
 					areaName: "admin",
-					pattern: "Admin/{controller=Home}/{action=Index}/{id?}");
+					pattern: "admin/{controller:slugify=Home}/{action:slugify=Index}/{id:slugify?}");
 
 				endpoints.MapAreaControllerRoute(
 					name: "animals",
 					areaName: "animals",
-					pattern: "Animals/{controller=Home}/{action=Index}/{id?}");
+					pattern: "animals/{controller:slugify=Home}/{action:slugify=Index}/{id:slugify?}");
 
 				endpoints.MapAreaControllerRoute(
 					name: "vehicles",
 					areaName: "vehicles",
-					pattern: "Vehicles/{controller=Home}/{action=Index}/{id?}");
+					pattern: "vehicles/{controller:slugify=Home}/{action:slugify=Index}/{id:slugify?}");
 
 				endpoints.MapAreaControllerRoute(
 					name: "householdItemsAndMoves",
 					areaName: "householdItemsAndMoves",
-					pattern: "HouseholdItemsAndMoves/{controller=Home}/{action=Index}/{id?}");
+					pattern: "household-items-and-moves/{controller:slugify=Home}/{action:slugify=Index}/{id:slugify?}");
 
 				endpoints.MapAreaControllerRoute(
 					name: "freights",
 					areaName: "freights",
-					pattern: "Freights/{controller=Home}/{action=Index}/{id?}");
+					pattern: "freights/{controller:slugify=Home}/{action:slugify=Index}/{id:slugify?}");
 
 				endpoints.MapControllerRoute(
 					name: "default",
-					pattern: "{controller=Home}/{action=Index}/{id?}");
+					pattern: "{controller:slugify}/{action:slugify}/{id:slugify?}",
+					defaults: new { controller = "Home", action = "Index" });
 
 				endpoints.MapRazorPages();
 

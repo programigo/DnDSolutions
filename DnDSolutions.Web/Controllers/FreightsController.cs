@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 
 namespace DnDSolutions.Web.Controllers
 {
-	[Route("Freights")]
+	[Route("freights")]
 	[Authorize(Roles = GlobalConstants.AdministratorRole + ", " + GlobalConstants.CustomerRole + ", " + GlobalConstants.TransporterRole)]
 	public class FreightsController : Controller
 	{
@@ -39,11 +39,11 @@ namespace DnDSolutions.Web.Controllers
 
 		public IActionResult Index() => View();
 
-		[Route("LessThanContainerLoads/Create")]
+		[Route("less-than-container-loads/Create")]
 		public IActionResult CreateLessThanContainerLoad() => View();
 
 		[HttpPost]
-		[Route("LessThanContainerLoads/Create")]
+		[Route("less-than-container-loads/Create")]
 		public async Task<IActionResult> CreateLessThanContainerLoad(LessThanContainerLoadFormModel lessThanContainerLoadModel)
 		{
 			if (ModelState.IsValid)
@@ -102,7 +102,7 @@ namespace DnDSolutions.Web.Controllers
 			return View();
 		}
 
-		[Route("LessThanContainerLoads/{id}")]
+		[Route("less-than-container-loads/{id}")]
 		public IActionResult LessThanContainerLoadDetails(int id)
 		{
 			LessThanContainerLoadDetailsServiceModel lclServiceModel = this.freightService.LessThanContainerLoadDetails(id);

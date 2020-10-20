@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace DnDSolutions.Web.Controllers
 {
-	[Route("Boats")]
+	[Route("boats")]
 	[Authorize(Roles = GlobalConstants.AdministratorRole + ", " + GlobalConstants.CustomerRole + ", " + GlobalConstants.TransporterRole)]
 	public class BoatsController : Controller
 	{
@@ -98,7 +98,7 @@ namespace DnDSolutions.Web.Controllers
 			return View();
 		}
 
-		[Route("Details/{id}")]
+		[Route("details/{id}")]
 		public IActionResult Details(int id)
 		{
 			BoatDetailsServiceModel boatServiceModel = this.boatService.BoatDetails(id);

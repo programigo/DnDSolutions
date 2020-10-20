@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 
 namespace DnDSolutions.Web.Controllers
 {
-	[Route("Animals")]
+	[Route("animals")]
 	[Authorize(Roles = GlobalConstants.AdministratorRole + ", " + GlobalConstants.CustomerRole + ", " + GlobalConstants.TransporterRole)]
 	public class AnimalsController : Controller
 	{

@@ -4,9 +4,12 @@
 	<div class="card">
 		<div class="card-body">
 			<h5 class="card-title">@Model.Username</h5>
-			<a id="chat-button" class="btn" asp-controller="Messages" asp-action="Index" asp-route-recipientId="@Model.UserId">
-				<i class="fab fa-facebook-messenger"></i>
-			</a>
+			@if (User.Identity.Name != Model.Username)
+			{
+				<a id="chat-button" class="btn" asp-controller="Messages" asp-action="Index" asp-route-recipientId="@Model.UserId">
+					<i class="fab fa-facebook-messenger"></i>
+				</a>
+			}
 		</div>
 	</div>
 </div>

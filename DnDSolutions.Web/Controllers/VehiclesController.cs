@@ -19,7 +19,7 @@ using System.Threading.Tasks;
 
 namespace DnDSolutions.Web.Controllers
 {
-	[Route("Vehicles")]
+	[Route("vehicles")]
 	[Authorize(Roles = GlobalConstants.AdministratorRole + ", " + GlobalConstants.CustomerRole + ", " + GlobalConstants.TransporterRole)]
 	public class VehiclesController : Controller
 	{
@@ -101,7 +101,7 @@ namespace DnDSolutions.Web.Controllers
 		public IActionResult CreateCar() => View();
 
 		[HttpPost]
-		[Route("Cars/Create")]
+		[Route("cars/create")]
 		public async Task<IActionResult> CreateCar(CarFormModel carModel)
 		{
 			if (ModelState.IsValid)
@@ -152,11 +152,11 @@ namespace DnDSolutions.Web.Controllers
 			return View();
 		}
 
-		[Route("HeavyVehicles/Create")]
+		[Route("heavy-vehicles/Create")]
 		public IActionResult CreateHeavyVehicle() => View();
 
 		[HttpPost]
-		[Route("HeavyVehicles/Create")]
+		[Route("heavy-vehicles/Create")]
 		public async Task<IActionResult> CreateHeavyVehicle(HeavyVehicleFormModel heavyVehicleModel)
 		{
 			if (ModelState.IsValid)
@@ -263,11 +263,11 @@ namespace DnDSolutions.Web.Controllers
 			return View();
 		}
 
-		[Route("RecreationalVehicles/Create")]
+		[Route("recreational-vehicles/Create")]
 		public IActionResult CreateRecreationalVehicle() => View();
 
 		[HttpPost]
-		[Route("RecreationalVehicles/Create")]
+		[Route("recreational-vehicles/Create")]
 		public async Task<IActionResult> CreateRecreationalVehicle(RecreationalVehicleFormModel recreationalVehicleModel)
 		{
 			if (ModelState.IsValid)
@@ -392,7 +392,7 @@ namespace DnDSolutions.Web.Controllers
 			return View(carViewModel);
 		}
 
-		[Route("HeavyVehicles/{id}")]
+		[Route("heavy-vehicles/{id}")]
 		public IActionResult HeavyVehicleDetails(int id)
 		{
 			HeavyVehicleDetailsServiceModel heavyVehicleServiceModel = this.vehicleService.HeavyVehicleDetails(id);
@@ -455,7 +455,7 @@ namespace DnDSolutions.Web.Controllers
 			return View(motorcycleViewModel);
 		}
 
-		[Route("RecreationalVehicles/{id}")]
+		[Route("recreational-vehicles/{id}")]
 		public IActionResult RecreationalVehicleDetails(int id)
 		{
 			RecreationalVehicleDetailsServiceModel recreationalVehicleServiceModel = this.vehicleService.RecreationalVehicleDetails(id);

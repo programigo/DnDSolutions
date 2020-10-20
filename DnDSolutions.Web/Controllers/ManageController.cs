@@ -14,7 +14,6 @@ using System.Threading.Tasks;
 namespace DnDSolutions.Web.Controllers
 {
     [Authorize]
-    [Route("[controller]/[action]")]
     public class ManageController : Controller
     {
         private readonly UserManager<User> _userManager;
@@ -81,8 +80,11 @@ namespace DnDSolutions.Web.Controllers
                 var setEmailResult = await _userManager.SetEmailAsync(user, model.Email);
                 if (!setEmailResult.Succeeded)
                 {
-                    throw new ApplicationException($"Unexpected error occurred setting email for user with ID '{user.Id}'.");
+                    AddErrors(setEmailResult);
+                    return View(model);
                 }
+
+                StatusMessage = "Your email has been updated.";
             }
 
             var phoneNumber = user.PhoneNumber;
@@ -91,11 +93,13 @@ namespace DnDSolutions.Web.Controllers
                 var setPhoneResult = await _userManager.SetPhoneNumberAsync(user, model.PhoneNumber);
                 if (!setPhoneResult.Succeeded)
                 {
-                    throw new ApplicationException($"Unexpected error occurred setting phone number for user with ID '{user.Id}'.");
+                    AddErrors(setPhoneResult);
+                    return View(model);
                 }
+
+                StatusMessage = "Your phone number has been updated.";
             }
 
-            StatusMessage = "Your profile has been updated";
             return RedirectToAction(nameof(Index));
         }
 
@@ -124,6 +128,7 @@ namespace DnDSolutions.Web.Controllers
         }
 
         [HttpGet]
+        [Route("change-password")]
         public async Task<IActionResult> ChangePassword()
         {
             var user = await _userManager.GetUserAsync(User);

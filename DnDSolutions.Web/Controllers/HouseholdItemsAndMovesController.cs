@@ -20,7 +20,7 @@ using System.Threading.Tasks;
 
 namespace DnDSolutions.Web.Controllers
 {
-	[Route("HouseholdItemsAndMoves")]
+	[Route("household-items-and-moves")]
 	[Authorize(Roles = GlobalConstants.AdministratorRole + ", " + GlobalConstants.CustomerRole)]
 	public class HouseholdItemsAndMovesController : Controller
 	{
@@ -101,11 +101,11 @@ namespace DnDSolutions.Web.Controllers
 			return View();
 		}
 
-		[Route("HouseholdItems/Create")]
+		[Route("household-items/Create")]
 		public IActionResult CreateHouseholdItem() => View();
 
 		[HttpPost]
-		[Route("HouseholdItems/Create")]
+		[Route("household-items/Create")]
 		public async Task<IActionResult> CreateHouseholdItem(HouseholdItemFormModel householdItemModel)
 		{
 			if (ModelState.IsValid)
