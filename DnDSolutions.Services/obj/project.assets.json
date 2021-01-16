@@ -9501,6 +9501,7 @@
       },
       "frameworks": {
         "netstandard2.1": {
+          "targetAlias": "netstandard2.1",
           "projectReferences": {
             "D:\\DnDSolutions\\DnDSolutions.Common\\DnDSolutions.Common.csproj": {
               "projectPath": "D:\\DnDSolutions\\DnDSolutions.Common\\DnDSolutions.Common.csproj"
@@ -9519,6 +9520,7 @@
     },
     "frameworks": {
       "netstandard2.1": {
+        "targetAlias": "netstandard2.1",
         "dependencies": {
           "AutoMapper": {
             "target": "Package",
@@ -9556,7 +9558,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.403\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.102\\RuntimeIdentifierGraph.json"
       }
     }
   }

@@ -19,7 +19,7 @@
 					</h4>
 					<p class="card-text">Pick up location: @cat.PickupLocation</p>
 					<p class="card-text">Delivery location: @cat.DeliveryLocation</p>
-					<p class="card-text">Collection date: @cat.CollectionDateEarliest.ToShortDateString()</p>
+					<p class="card-text">Collection date: @cat.CollectionDate.ToShortDateString()</p>
 				</div>
 				@await Component.InvokeAsync("BidForm", new { deliveryId = cat.Id, deliveryTitle = cat.Title })
 			</div>
@@ -44,7 +44,7 @@
 					</h4>
 					<p class="card-text">Pick up location: @dog.PickupLocation</p>
 					<p class="card-text">Delivery location: @dog.DeliveryLocation</p>
-					<p class="card-text">Collection date: @dog.CollectionDateEarliest.ToShortDateString()</p>
+					<p class="card-text">Collection date: @dog.CollectionDate.ToShortDateString()</p>
 				</div>
 				@await Component.InvokeAsync("BidForm", new { deliveryId = dog.Id, deliveryTitle = dog.Title })
 			</div>
@@ -69,7 +69,7 @@
 					</h4>
 					<p class="card-text">Pick up location: @horse.PickupLocation</p>
 					<p class="card-text">Delivery location: @horse.DeliveryLocation</p>
-					<p class="card-text">Collection date: @horse.CollectionDateEarliest.ToShortDateString()</p>
+					<p class="card-text">Collection date: @horse.CollectionDate.ToShortDateString()</p>
 				</div>
 				@await Component.InvokeAsync("BidForm", new { deliveryId = horse.Id, deliveryTitle = horse.Title })
 			</div>
@@ -94,7 +94,7 @@
 					</h4>
 					<p class="card-text">Pick up location: @livestock.PickupLocation</p>
 					<p class="card-text">Delivery location: @livestock.DeliveryLocation</p>
-					<p class="card-text">Collection date: @livestock.CollectionDateEarliest.ToShortDateString()</p>
+					<p class="card-text">Collection date: @livestock.CollectionDate.ToShortDateString()</p>
 				</div>
 				@await Component.InvokeAsync("BidForm", new { deliveryId = livestock.Id, deliveryTitle = livestock.Title })
 			</div>

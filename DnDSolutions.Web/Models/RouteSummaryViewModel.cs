@@ -8,12 +8,8 @@ namespace DnDSolutions.Web.Models
 
 		public string DeliveryLocation { get; set; }
 
-		public DateTime CollectionDateEarliest { get; set; }
+		public DateTime CollectionDate { get; set; }
 
-		public DateTime CollectionDateLatest { get; set; }
-
-		public DateTime DeliveryDateEarliest { get; set; }
-
-		public DateTime DeliveryDateLatest { get; set; }
+		public DateTime DeliveryDate { get; set; }
 	}
 }

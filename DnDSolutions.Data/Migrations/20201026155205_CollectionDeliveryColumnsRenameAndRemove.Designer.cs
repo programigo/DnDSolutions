@@ -4,14 +4,16 @@ using DnDSolutions.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DnDSolutions.Data.Migrations
 {
     [DbContext(typeof(DnDSolutionsDbContext))]
-    partial class DnDSolutionsDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201026155205_CollectionDeliveryColumnsRenameAndRemove")]
+    partial class CollectionDeliveryColumnsRenameAndRemove
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -74,9 +76,6 @@ namespace DnDSolutions.Data.Migrations
                     b.Property<string>("Discriminator")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
-
-                    b.Property<bool>("HasInsurance")
-                        .HasColumnType("bit");
 
                     b.Property<string>("PickupLocation")
                         .IsRequired()

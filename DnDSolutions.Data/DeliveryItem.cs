@@ -14,16 +14,12 @@ namespace DnDSolutions.Data
         public string Title { get; set; }
 
         [Required]
-        public DateTime CollectionDateEarliest { get; set; }
+        public DateTime CollectionDate { get; set; }
 
         [Required]
-        public DateTime CollectionDateLatest { get; set; }
+        public DateTime DeliveryDate { get; set; }
 
-        [Required]
-        public DateTime DeliveryDateEarliest { get; set; }
-
-        [Required]
-        public DateTime DeliveryDateLatest { get; set; }
+        public bool HasInsurance { get; set; }
 
         [Required]
         [MaxLength(100)]

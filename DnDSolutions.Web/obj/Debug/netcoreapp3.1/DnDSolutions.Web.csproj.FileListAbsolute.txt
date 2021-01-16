@@ -22,7 +22,6 @@ D:\DnDSolutions\DnDSolutions.Web\obj\Debug\netcoreapp3.1\DnDSolutions.Web.dll
 D:\DnDSolutions\DnDSolutions.Web\obj\Debug\netcoreapp3.1\DnDSolutions.Web.pdb
 D:\DnDSolutions\DnDSolutions.Web\bin\Debug\netcoreapp3.1\appsettings.Development.json
 D:\DnDSolutions\DnDSolutions.Web\bin\Debug\netcoreapp3.1\appsettings.json
-D:\DnDSolutions\DnDSolutions.Web\bin\Debug\netcoreapp3.1\Properties\launchSettings.json
 D:\DnDSolutions\DnDSolutions.Web\bin\Debug\netcoreapp3.1\DnDSolutions.Web.StaticWebAssets.xml
 D:\DnDSolutions\DnDSolutions.Web\bin\Debug\netcoreapp3.1\DnDSolutions.Web.exe
 D:\DnDSolutions\DnDSolutions.Web\bin\Debug\netcoreapp3.1\DnDSolutions.Web.deps.json
@@ -240,3 +239,5 @@ D:\DnDSolutions\DnDSolutions.Web\bin\Debug\netcoreapp3.1\libman.json
 D:\DnDSolutions\DnDSolutions.Web\obj\Debug\netcoreapp3.1\Razor\Views\Messages\Index.cshtml.g.cs
 D:\DnDSolutions\DnDSolutions.Web\obj\Debug\netcoreapp3.1\Razor\Views\Messages\All.cshtml.g.cs
 D:\DnDSolutions\DnDSolutions.Web\obj\Debug\netcoreapp3.1\Razor\Areas\Admin\Views\Users\Details.cshtml.g.cs
+D:\DnDSolutions\DnDSolutions.Web\obj\Debug\netcoreapp3.1\scopedcss\bundle\DnDSolutions.Web.styles.css
+D:\DnDSolutions\DnDSolutions.Web\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_DeliveryInsurancePartial.cshtml.g.cs

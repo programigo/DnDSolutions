@@ -24,6 +24,7 @@
 				<input asp-for="Title" class="form-control" />
 				<span asp-validation-for="Title" class="text-danger"></span>
 			</div>
+			@await Html.PartialAsync("_DeliveryInsurancePartial", Model)
 			<div class="form-group">
 				<div class="row">
 					<div class="col">
@@ -150,24 +151,14 @@
 				<span asp-validation-for="DeliveryLocation" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="CollectionDateEarliest"></label>
-				<input type="date" name="CollectionDateEarliest" required />
-				<span asp-validation-for="CollectionDateEarliest" class="text-danger"></span>
+				<label asp-for="CollectionDate"></label>
+				<input type="date" name="CollectionDate" required />
+				<span asp-validation-for="CollectionDate" class="text-danger"></span>
 			</div>
 			<div class="form-group">
-				<label asp-for="CollectionDateLatest"></label>
-				<input type="date" name="CollectionDateLatest" required />
-				<span asp-validation-for="CollectionDateLatest" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="DeliveryDateEarliest"></label>
-				<input type="date" name="DeliveryDateEarliest" required />
-				<span asp-validation-for="DeliveryDateEarliest" class="text-danger"></span>
-			</div>
-			<div class="form-group">
-				<label asp-for="DeliveryDateLatest"></label>
-				<input type="date" name="DeliveryDateLatest" required />
-				<span asp-validation-for="DeliveryDateLatest" class="text-danger"></span>
+				<label asp-for="DeliveryDate"></label>
+				<input type="date" name="DeliveryDate" required />
+				<span asp-validation-for="DeliveryDate" class="text-danger"></span>
 			</div>
 			<div class="form-group">
 				<label asp-for="Photos"></label>

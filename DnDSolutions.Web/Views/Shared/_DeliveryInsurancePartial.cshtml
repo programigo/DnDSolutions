@@ -1,0 +1,52 @@
+﻿@model DeliveryFormModel
+
+<div class="form-group">
+	<div class="row">
+		<div class="col">
+			<legend class="col-form-label">
+				Do you want to insure your delivery?
+			</legend>
+			<div class="form-check">
+				@Html.RadioButtonFor(m => m.HasInsurance, true, new { id = "yes-radio-button" })
+				<label for="yes-radio-button">
+					Yes
+				</label>
+			</div>
+			<div class="form-check" data-toggle="modal" data-target="#insuranceModal">
+				@Html.RadioButtonFor(m => m.HasInsurance, false, new { id = "no-radio-button" })
+				<label for="no-radio-button">
+					No
+				</label>
+			</div>
+		</div>
+	</div>
+	<span asp-validation-for="HasInsurance" class="text-danger"></span>
+</div>
+
+<div class="modal fade" id="insuranceModal" tabindex="-1" role="dialog" aria-labelledby="insuranceModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-centered" role="document">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="insuranceModalLabel">
+					Warning
+				</h5>
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+					<span aria-hidden="true">&times;</span>
+				</button>
+			</div>
+			<div class="modal-body">
+				DnD Solutions takes zero responsibility about any kind of damage to the delivery. Everything is on your responsibility.
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-secondary" data-dismiss="modal">
+					Close
+				</button>
+			</div>
+		</div>
+	</div>
+</div>
+
+@section Scripts {
+	@await Html.PartialAsync("_ValidationScriptsPartial")
+	@await Html.PartialAsync("_FileInputValidationScriptsPartial")
+}

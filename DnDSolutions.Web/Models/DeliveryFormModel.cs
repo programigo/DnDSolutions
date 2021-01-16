@@ -21,24 +21,20 @@ namespace DnDSolutions.Web.Models
         public string DeliveryLocation { get; set; }
 
         [Required]
-        [Display(Name = "Collection Date Earliest")]
-        public DateTime CollectionDateEarliest { get; set; }
+        [Display(Name = "Collection Date")]
+        public DateTime CollectionDate { get; set; }
 
         [Required]
-        [Display(Name = "Collection Date Latest")]
-        public DateTime CollectionDateLatest { get; set; }
-
-        [Required]
-        [Display(Name = "Delivery Date Earliest")]
-        public DateTime DeliveryDateEarliest { get; set; }
-
-        [Required]
-        [Display(Name = "Delivery Date Latest")]
-        public DateTime DeliveryDateLatest { get; set; }
+        [Display(Name = "Delivery Date")]
+        public DateTime DeliveryDate { get; set; }
 
         public List<IFormFile> Photos { get; set; }
 
         [Display(Name = "Additional Details")]
         public string AdditionalDetails { get; set; }
+
+        [Required(ErrorMessage = "The {0} field is required.")]
+        [Display(Name = "Insurance")]
+        public bool HasInsurance { get; set; }
     }
 }
